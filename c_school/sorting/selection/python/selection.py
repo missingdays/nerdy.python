@@ -11,4 +11,4 @@ for i in range(len(A)):
     A[minimum] = buf
 
 for i in range(len(A)):
-    print(A[i], " ")
+    print(A[i])
