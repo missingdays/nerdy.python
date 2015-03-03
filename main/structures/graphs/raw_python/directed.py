@@ -10,9 +10,14 @@ N = [
     [f, h], # g
     [f, g] # h
 ]
+#Chech wheter b is linked to a
+print(b in N[a])
+
+#Get all nodes linked to f node
+for i in range(len(N[f])):
+    print(N[f][i])
 
 #Weighted
-
 a, b, c, d, e, f, g, h = range(8)
 N = [
     {b:2, c:1, d:3, e:9, f:4}, # a
@@ -24,3 +29,6 @@ N = [
     {f:1, h:6}, # g
     {f:9, g:8} # h
 ]
+
+#Get weight
+print(N[a][b])
