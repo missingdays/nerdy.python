@@ -11,7 +11,7 @@ N = [
     [f, g] # h
 ]
 #Chech wheter b is linked to a
-print(b in N[a])
+print(""b in N[a])
 
 #Get all nodes linked to f node
 for i in range(len(N[f])):
@@ -30,5 +30,5 @@ N = [
     {f:9, g:8} # h
 ]
 
-#Get weight
+#Get weight of a-b edge
 print(N[a][b])
