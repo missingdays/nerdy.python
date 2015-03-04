@@ -1,20 +1,22 @@
-# Библиотека кода
-Хранилка для кода для всех задач, что мы разбирали и возможно будем разбирать. Изначально создана для кружка по программированию в SUT.
+## Code storage
+Code storage for algorithms, data structures and challenges any level of difficulty. Study case only!
 
-##Зачем?
-Прежде всего, это личная хранилка алгоритмов и структур данных. Главной ее задачей является собрать их реализации на основных языках в одном месте.
+## What's the point?
+Firstly, this is my personal storage for algorithms and data structures in whole bunch of languages. Secondly, this repository is a great way to learn algorithms from scratch.
+The idea is to store all information about all algorithms in one place, have code simple, fully commented and documented.
 
-##Где что искать?
-Базовые алгоритмы и задачи лежат в c_school. Этот код используется для кружка по программированию.
-Остальные алгоритмы и структуры данных ищите в main.
+## Where to find stuff?
+C_school is where basic algorithms and tasks in C are stored. This is a great place to start your journey.
+Most of algorithms are stored in main.
 
-##Зачем хранить целые Qt проекты?
-Их мы храним только в папке c_school. В main хранятся лишь С/C++ файлы.
-Следует помнить, что репозиторий прежде всего является учебным, и при изучении алгоритма не хочется возиться с файлами и их сборкой, хочется, чтобы все работало из коробки. Языки вроде Python или Go позволяют этом делать, С/С++ нет. Поэтому хранятся целые проекты, чтобы после скачивания их открыть, скомпилировать и видеть результат.
+## Why to store full Qt projects?
+Qt projects are only stored in c_school. We store raw C/C++ in main.
+Remember though, that we want to make repository as easy to use as possible. Languages like Python or Go let you run files just from console. C/C++ require long process of compiling/building. Storing Qt projects lets you clone repository and use it right away! (if you have Qt installed).
 
-##Хочу помочь
-Принимаются реквесты на любые алгоритмы, еще не реализованные в данном репозитории или не реализованные на вашем любимом языке. 
+## Want to contribute
+If you know any algorithm or data structure that is not in the repository and issues yet, issues it for sure! Also you can write existing algorithm in your favorite language and send a pull request with it!
+If you have solved any challenges and want to share your solution, you can send task + laguage/name.extention pair in your pull request.  
+Please make sure your code works properly before sending a request. Please, try to keep your code as simple as possible and as independent as possible (code should include as fewer external libraries as possible and work just on its own).
 
-##На каком языке/фреймворке/среде разработке присылать?
-Основным языком у нас является С и С++. С ними мы работаем через Qt. Однако чистые С/С++ файлы, проекты в других средах разработки тоже принимаются.
-Остальные языки принимаются в любом формате.
+## What languages and frameworks do I use?
+The main languages are Python and C/C++. C/C++ are preferred in Qt-style files, any other language can be added with language/name.extention pull request.
