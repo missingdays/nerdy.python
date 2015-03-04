@@ -3,7 +3,7 @@ Code storage for algorithms, data structures and challenges any level of difficu
 
 ## What's the point?
 Firstly, this is my personal storage for algorithms and data structures in whole bunch of languages. Secondly, this repository is a great way to learn algorithms from scratch.
-The idea is to store all information about all algorithms in one place, have code simple, fully commented and documented.
+The idea is to store all information about all algorithms in one place, to have code simple, fully commented and documented.
 
 ## Where to find stuff?
 C_school is where basic algorithms and tasks in C are stored. This is a great place to start your journey.
