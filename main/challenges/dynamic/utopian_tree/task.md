@@ -10,8 +10,9 @@ The first line contains an integer, T, the number of test cases.
 T lines follow; each line contains an integer, N, that denotes the number of cycles for that test case.
 
 ####Constraints
-1≤T≤10
-0≤N≤60
+1 ≤T ≤ 10
+
+0 ≤N ≤ 60
 ####Output Format
 
 For each test case, print the height of the Utopian Tree after N cycles. Each line thus has to contain a single integer, only.
