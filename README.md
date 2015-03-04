@@ -16,7 +16,7 @@ Remember though, that we want to make repository as easy to use as possible. Lan
 ## Want to contribute
 If you know any algorithm or data structure that is not in the repository and issues yet, issues it for sure! Also you can write existing algorithm in your favorite language and send a pull request with it!
 If you have solved any challenges and want to share your solution, you can send task + laguage/name.extention pair in your pull request.  
-Please make sure your code works properly before sending a request. Please, try to keep your code as simple as possible and as independent as possible (code should include as fewer external libraries as possible and work just on its own).
+Please make sure your code works properly before sending a request. Please try to keep your code as simple as possible and as independent as possible (code should include as fewer external libraries as possible and work just on its own).
 
 ## What languages and frameworks do I use?
 The main languages are Python and C/C++. C/C++ are preferred in Qt-style files, any other language can be added with language/name.extention pull request.
