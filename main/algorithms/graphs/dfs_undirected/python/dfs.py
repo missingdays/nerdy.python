@@ -1,12 +1,13 @@
 a, b, c, d, e, f, g, h = range(8)
-#Unweighted
+
+#Unweighted undirected graph
 G = [
     [b, c, d, e, f], # a
-    [c, e], # b
-    [d], # c
-    [e], # d
-    [f], # e
-    [c, g, h], # f
+    [a, c, e], # b
+    [a, b, d], # c
+    [a, c, e], # d
+    [a, b, d, f], # e
+    [a, c, g, e, h], # f
     [f, h], # g
     [f, g] # h
 ]
