@@ -13,6 +13,13 @@ Most of algorithms are stored in main.
 Qt projects are only stored in c_school. We store raw C/C++ in main.
 Remember though, that we want to make repository as easy to use as possible. Languages like Python or Go let you run files just from console. C/C++ require long process of compiling/building. Storing Qt projects lets you clone repository and use it right away! (if you have Qt installed).
 
+##Didn't find what you was looking for?
+1. Maybe you will find it here:
+http://rosettacode.org/wiki/Rosetta_Code - great sites with a lot algorithms. Our repository is inspired mostly by this site.
+http://mitpress.mit.edu/books/introduction-algorithms - wonderful book that helped our repository a lot.
+Have some recourse to share with others? Send a pull-request!
+2. Help out project with your solutions. See "Want to contribute".
+
 ## Want to contribute
 If you know any algorithm or data structure that is not in the repository and issues yet, issues it for sure! Also you can write existing algorithm in your favorite language and send a pull request with it!
 If you have solved any challenges and want to share your solution, you can send task + laguage/name.extention pair in your pull request.  
