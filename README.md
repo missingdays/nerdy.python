@@ -5,6 +5,11 @@ Code storage for algorithms, data structures and challenges any level of difficu
 Firstly, this is my personal storage for algorithms and data structures in whole bunch of languages. Secondly, this repository is a great way to learn algorithms from scratch.
 The idea is to store all information about all algorithms in one place, to have code simple, fully commented and documented.
 
+##How to use it?
+Just clone it localy and execute any file you want. It's that easy!
+For C/C++ in main folder you'll have to compile files using your favorite labrary or IDE. All includes and mains are already there.
+We are trying to make every file as independent as possible so you can use it on its own and you don't have to download any external libraries.
+
 ## Where to find stuff?
 C_school is where basic algorithms and tasks in C are stored. This is a great place to start your journey.
 Most of algorithms are stored in main.
