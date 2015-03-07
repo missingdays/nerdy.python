@@ -49,13 +49,15 @@ class Queue():
         #Return value
         return x
 
-
+#Create new queue
 queue = Queue(3)
 
+#Add some values to it
 queue.enqueue(4)
 queue.enqueue(5)
 queue.enqueue(1)
 
+#Get values
 print(queue.dequeue()) #4
 print(queue.dequeue()) #5
 print(queue.dequeue()) #1
