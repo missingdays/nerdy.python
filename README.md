@@ -7,7 +7,9 @@ The idea is to store all information about all algorithms in one place, to have 
 
 ##How to use it?
 Just clone it localy and execute any file you want. It's that easy!
+
 For C/C++ in main folder you'll have to compile files using your favorite labrary or IDE. All includes and mains are already there.
+
 We are trying to make every file as independent as possible so you can use it on its own and you don't have to download any external libraries.
 
 ## Where to find stuff?
