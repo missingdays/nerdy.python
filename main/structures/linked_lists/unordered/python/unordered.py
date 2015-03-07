@@ -72,7 +72,7 @@ class UnorderedList:
 
 list = UnorderedList()
 
-for i in range(10):
+for i in range(11):
     list.add(i)
 
 for i in range(10):
