@@ -36,7 +36,7 @@ class Stack():
             return self.array_[self.top]
 
 #Create new stack
-stack = Stack(6)
+stack = Stack(3)
 
 #Push some values
 stack.push(5)
