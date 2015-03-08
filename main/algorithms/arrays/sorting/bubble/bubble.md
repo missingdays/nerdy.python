@@ -8,7 +8,7 @@ Algorithm is very easy to code, yet it is too slow to be used in real world, eve
 ##Performance and complexity
 Performance O(n<sup>2</sup>).
 
-**Performance doesn't depend on elements order or structure.**
+**Performance doesn't depend on elements' order or structure.**
 
 Memory O(1).
 
