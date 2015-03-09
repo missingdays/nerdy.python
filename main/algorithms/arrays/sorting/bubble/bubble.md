@@ -9,7 +9,7 @@ Algorithm repeatedly steps through the list to be sorted, compares each pair of 
 Algorithm is very easy to code, yet it is too slow to be used in real world, even when compared to [insertion sort](https://github.com/missingdays/code_library/tree/master/main/algorithms/arrays/sorting/insertion).
 
 ##Performance and complexity
-Performance O(n<sup>2</sup>).
+Complexity O(n<sup>2</sup>).
 
 **Performance doesn't depend on elements' order or structure.**
 
