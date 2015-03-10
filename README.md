@@ -1,3 +1,5 @@
+#Repository is under hard development!
+
 ## Code storage
 Upcoming Wiki and code storage for algorithms, data structures and challenges any level of difficulty. Study case only!
 
