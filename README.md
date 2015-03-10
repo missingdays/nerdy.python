@@ -1,5 +1,5 @@
 ## Code storage
-Code storage for algorithms, data structures and challenges any level of difficulty. Study case only!
+Upcoming Wiki and code storage for algorithms, data structures and challenges any level of difficulty. Study case only!
 
 ## What's the point?
 Firstly, this is my personal storage for algorithms and data structures in whole bunch of languages. Secondly, this repository is a great way to learn algorithms from scratch.
