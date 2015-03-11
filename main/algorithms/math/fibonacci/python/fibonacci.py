@@ -1,5 +1,14 @@
+'''
+    type: algorithm
+    theme: math
+    sub-theme: calculate
+    name: fibonacci
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 def fibonacci(n):
-    
+
     if n == 1:
         return 0
 

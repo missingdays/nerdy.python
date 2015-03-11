@@ -1,4 +1,12 @@
-#Euclidian algorithm
+'''
+    type: algorithm
+    theme: math
+    sub-theme: calculate
+    name: Euclidian algorithm (greatest common division)
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 #Finds greatest common division
 def gcd(a,b):
 
@@ -9,7 +17,7 @@ def gcd(a,b):
 
         else:
             b = b % a
-            
+
     return a + b
 
 print(gcd(20, 30)) #10

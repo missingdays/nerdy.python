@@ -1,3 +1,13 @@
+'''
+    type: algorithm
+    theme: graphs
+    sub-theme: basic
+    name: dfs
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 a, b, c, d, e, f, g, h = range(8)
 
 #Unweighted undirected graph

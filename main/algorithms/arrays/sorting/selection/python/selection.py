@@ -1,3 +1,12 @@
+'''
+    type: algorithm
+    theme: arrays
+    sub-theme: sorting
+    name: selection sorting
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 A = [10, 2, 4, 5, 6, -3, 4, 0, 56]
 
 for i in range(len(A)):

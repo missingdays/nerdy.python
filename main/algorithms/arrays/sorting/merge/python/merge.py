@@ -1,3 +1,12 @@
+'''
+    type: algorithm
+    theme: arrays
+    sub-theme: sorting
+    name: merge sorting
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 def mergeSort(Array):
 
     if len(Array) > 1:

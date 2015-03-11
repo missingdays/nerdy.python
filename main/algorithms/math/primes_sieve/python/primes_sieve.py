@@ -1,5 +1,14 @@
-#Returns every prime number up to the given one
+'''
+    type: algorithm
+    theme: math
+    sub-theme: calculate
+    name: Sieve of Eratosthenes (prime numbers)
+    author of code: Evgeny @missingdays Bovykin
 
+'''
+
+
+#Returns every prime number up to the given one
 def primes_sieve(limit):
 
     #Include number itself

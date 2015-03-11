@@ -1,3 +1,12 @@
+/*
+    type: algorithm
+    theme: arrays
+    sub-theme: sorting
+    name: bubble sorting
+    author of code: Evgeny @missingdays Bovykin
+
+*/
+
 package main
 
 import "fmt"

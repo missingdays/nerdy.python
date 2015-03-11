@@ -1,3 +1,13 @@
+/*
+    type: algorithm
+    theme: arrays
+    sub-theme: sorting
+    name: quick sorting
+    author of code: Ivan @XioYS
+
+*/
+
+
 #include <iostream>
  void QuickSortRecurs(int  ArrToSort[], int first, int last)
 {

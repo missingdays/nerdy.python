@@ -1,3 +1,13 @@
+'''
+    type: algorithm
+    theme: arrays
+    sub-theme: search
+    name: binary-search
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 A = [7, 8, 9, 15, 20, 34, 41, 45] #Sorted array required
 
 def binarySearch(array, item):

@@ -1,3 +1,12 @@
+'''
+    type: algorithm
+    theme: arrays
+    sub-theme: sorting
+    name: heap sorting
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 def HeapSort(A):
     def buildHeap(A):
 

@@ -1,5 +1,14 @@
+'''
+    type: algorithm
+    theme: math
+    sub-theme: calculate
+    name: factorial
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 def factorial(n):
-    
+
     if n == 1 or n == 0:
         return 1
 

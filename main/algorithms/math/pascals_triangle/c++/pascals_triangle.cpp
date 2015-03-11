@@ -1,3 +1,12 @@
+/*
+    type: algorithm
+    theme: math
+    sub-theme: calculate
+    name: Pascal's triangle
+    author of code: Ivan @XioYS
+
+*/
+
 #include <iostream>
 using namespace std;
 int main()

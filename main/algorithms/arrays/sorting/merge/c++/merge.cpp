@@ -1,3 +1,12 @@
+/*
+    type: algorithm
+    theme: arrays
+    sub-theme: sorting
+    name: merge sorting
+    author of code: Ivan @XioYS
+
+*/
+
 #include <iostream>
 using namespace std;
 

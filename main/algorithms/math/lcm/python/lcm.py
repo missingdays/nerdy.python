@@ -1,3 +1,12 @@
+'''
+    type: algorithm
+    theme: math
+    sub-theme: calculate
+    name: Least common multiply
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 #Finds least common multiply
 def lcm(a, b):
     return a * b / gcd(a, b)
