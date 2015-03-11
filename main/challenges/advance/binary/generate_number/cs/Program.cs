@@ -1,3 +1,5 @@
+//Non-working yet
+
 byte[] bitfield = new byte [0xFFFFFFF/8];
 
 void findOpenNumber2() throws FileNotFoundException {

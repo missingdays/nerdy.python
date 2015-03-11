@@ -1,3 +1,13 @@
+'''
+    type: challenge solution
+    theme: basic
+    sub-theme: basic
+    name: utopian tree
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 #Get number of test cases
 n = int(input())
 
@@ -16,5 +26,5 @@ for i in range(n):
         #Odd cycle
         else:
             h = h + 1
-            
+
     print(h)
