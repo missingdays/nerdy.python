@@ -1,3 +1,13 @@
+'''
+    type: structure
+    theme: trees
+    sub-theme: seacrhing
+    name: binary search tree
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 class TreeNode:
     def __init__(self,key,val,left=None,right=None,parent=None):
         self.key = key

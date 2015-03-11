@@ -1,3 +1,12 @@
+'''
+    type: structure
+    theme: lists
+    sub-theme: implementation
+    name: unordered
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 class Node:
     def __init__(self,initdata):
         self.data = initdata

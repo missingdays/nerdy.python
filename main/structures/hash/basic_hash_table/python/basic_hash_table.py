@@ -1,3 +1,13 @@
+'''
+    type: structure
+    theme: hash
+    sub-theme: hash tables
+    name: basic map
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 class HashTable:
 
     def __init__(self):

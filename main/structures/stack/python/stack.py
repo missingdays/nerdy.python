@@ -1,3 +1,12 @@
+'''
+    type: structure
+    theme: collections
+    sub-theme: arrays
+    name: stack
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 class Stack():
 
 

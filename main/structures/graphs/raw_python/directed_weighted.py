@@ -1,3 +1,12 @@
+'''
+    type: structure
+    theme: graphs
+    sub-theme: implementation
+    name: directed weighted graph
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 #Weighted directed graph
 
 a, b, c, d, e, f, g, h = range(8)

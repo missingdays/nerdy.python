@@ -1,3 +1,13 @@
+'''
+    type: structure
+    theme: collections
+    sub-theme: arrays
+    name: queue
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 class Queue():
 
 

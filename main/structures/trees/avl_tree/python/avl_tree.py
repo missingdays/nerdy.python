@@ -1,3 +1,13 @@
+'''
+    type: strucure
+    theme: trees
+    sub-theme: storing and seacrhing
+    name: avl tree
+    author of code: @pgrafov
+
+'''
+
+
 import random, math
 
 

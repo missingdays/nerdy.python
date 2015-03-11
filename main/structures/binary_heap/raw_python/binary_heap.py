@@ -1,3 +1,12 @@
+'''
+    type: structure
+    theme: trees
+    sub-theme: storing and searching
+    name: binary heap
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 def buildHeap(A):
 
     for start in range((len(A) - 2) / 2, -1, -1):

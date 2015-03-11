@@ -1,3 +1,13 @@
+'''
+    type: structure
+    theme: graphs
+    sub-theme: implementation
+    name: directed unweighted graph
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 #Unweighted graph
 
 a, b, c, d, e, f, g, h = range(8)
