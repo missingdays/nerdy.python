@@ -68,3 +68,6 @@ The input tells us that L=10 and R=15. All the pairs which comply to above condi
 15⊕15=0
 
 Here two pairs (10, 13) and (11, 12) have maximum xor value 7, and this is the answer.
+
+Copyright (c) 2015 HackerRank.
+All Rights Reserved

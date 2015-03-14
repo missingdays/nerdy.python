@@ -21,3 +21,6 @@ Constraints
 
 
 1 ≤ length of string ≤ 105
+
+Copyright (c) 2015 HackerRank.
+All Rights Reserved

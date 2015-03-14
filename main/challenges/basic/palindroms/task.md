@@ -52,3 +52,6 @@ For the second test case, abcba is already a palindromic string.
 For the third test case, abcd -> abcc -> abcb -> abca = abca -> abba.
 
 For the fourth test case, cba -> bba -> aba.
+
+Copyright (c) 2015 HackerRank.
+All Rights Reserved

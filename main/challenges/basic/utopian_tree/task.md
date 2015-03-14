@@ -39,3 +39,7 @@ In the first case (N=0), the height of the tree remains unchanged.
 In the second case (when N = 1, i.e. after the 1st cycle), the tree doubles its height as it's planted at the onset of spring.
 
 In the third case (N=4), the tree first doubles its height (2), then grows a meter (3), then doubles again (6), before growing another meter; at the end of the 4th cycle, its height is 7 meters.
+
+
+Copyright (c) 2015 HackerRank.
+All Rights Reserved
