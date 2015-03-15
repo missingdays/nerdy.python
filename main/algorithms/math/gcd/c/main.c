@@ -18,10 +18,10 @@ int gcd(int a, int b) {
   //While b not equals 0
   while (b) {
 
-    //Assign buffer to a
+    //Assign a to buffer
     c = a;
 
-    //Assign a to b
+    //Assign b to a
     a = b;
 
     //Calculate b
