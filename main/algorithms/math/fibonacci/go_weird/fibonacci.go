@@ -30,5 +30,5 @@ func main() {
   f := fib()
 
   // Function calls are evaluated left-to-right.
-  fmt.Println(f(), f(), f(), f(), f())
+  fmt.Println(f(), f(), f(), f(), f(), f(), f(), f())
 }
