@@ -28,8 +28,8 @@ int gcd(int a, int b) {
     b = c % b;
   }
 
-  //Return absolute value of a
-  return a < 0 ? -a : a;
+  //Return a
+  return a;
 
 }
 
