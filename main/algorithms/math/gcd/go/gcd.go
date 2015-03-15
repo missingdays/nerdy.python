@@ -1,3 +1,12 @@
+/*
+    type: algorithm
+    theme: math
+    sub-theme: calculate
+    name: Euclidian algorithm (greatest common division)
+    author of code: Evgeny @missingdays Bovykin
+
+*/
+
 package main
 
 import "fmt"
