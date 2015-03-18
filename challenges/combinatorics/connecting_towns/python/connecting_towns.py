@@ -1,3 +1,13 @@
+'''
+    type: challenge solution
+    theme: basic
+    sub-theme: combinatorics
+    name: connecting towns
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 for i in range(int(input())):
 
     input()

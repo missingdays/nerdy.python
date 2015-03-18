@@ -1,3 +1,12 @@
+/*
+    type: challenge solution
+    theme: basic
+    sub-theme: basic
+    name: chocolate feast
+    author of code: Darya @dar-drozdova Drozdova
+
+*/
+
 #include <stdio.h>
 
 int main(void)
@@ -12,4 +21,3 @@ int main(void)
     printf("%d",sum/jars);
     return 0;
 }
-

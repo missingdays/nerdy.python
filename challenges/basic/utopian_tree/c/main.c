@@ -1,3 +1,12 @@
+/*
+    type: challenge solution
+    theme: basic
+    sub-theme: basic
+    name: utopian tree
+    author of code: Darya @dar-drozdova Drozdova
+
+*/
+
 #include <stdio.h>
 
 int main(void)
@@ -20,4 +29,3 @@ int main(void)
 
     return 0;
 }
-

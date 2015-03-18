@@ -1,4 +1,12 @@
-#!/usr/bin/python3
+'''
+    type: challenge solution
+    theme: basic
+    sub-theme: basic
+    name: maximize xor
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
 def maxXOR(x, y):
 
     #Set maximum to zero

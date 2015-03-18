@@ -1,3 +1,13 @@
+'''
+    type: challenge solution
+    theme: basic
+    sub-theme: basic
+    name: alternating characters
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 #Number of test cases
 n = int(input())
 

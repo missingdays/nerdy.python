@@ -1,3 +1,5 @@
+//Not stable!
+
 #include <stdio.h>
 int modul(int a){
     if (a<0){
@@ -22,4 +24,3 @@ int main(void)
     printf("%d",f);
     return 0;
 }
-

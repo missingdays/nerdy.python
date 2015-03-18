@@ -1,3 +1,13 @@
+'''
+    type: challenge solution
+    theme: contest
+    sub-theme: project euler
+    name: 61
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+#Unstable!
+
 #Triangle n * (n + 1) / 2
 #Square n * n
 #Pentagon n * (3 * n - 1) / 2

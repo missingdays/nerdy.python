@@ -1,3 +1,11 @@
+'''
+    type: challenge solution
+    theme: basic
+    sub-theme: dynamic programming
+    name: fibonacci modified
+    author of code: Evgeny @missingdays Bovykin
+
+'''
 
 #Get input numbers
 numbers = raw_input().split()

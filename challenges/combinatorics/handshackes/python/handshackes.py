@@ -1,3 +1,13 @@
+'''
+    type: challenge solution
+    theme: basic
+    sub-theme: combinatorics
+    name: handshakes
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 #For every test case
 for i in range(int(input())):
 

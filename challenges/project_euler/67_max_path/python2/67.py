@@ -1,3 +1,13 @@
+'''
+    type: challenge solution
+    theme: contest
+    sub-theme: project euler
+    name: 67 - max parh
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 def findMax(array):
     m = array[0]
 

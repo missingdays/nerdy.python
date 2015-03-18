@@ -1,3 +1,13 @@
+'''
+    type: challenge solution
+    theme: basic
+    sub-theme: basic
+    name: chocolate feast
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 T = int(input())
 
 for i in range(T):

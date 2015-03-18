@@ -1,3 +1,13 @@
+'''
+    type: challenge solution
+    theme: basic
+    sub-theme: combinatorics
+    name: minimum draws
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 #Get number of test cases
 n = int(input())
 

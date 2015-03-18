@@ -1,3 +1,11 @@
+'''
+    type: challenge solution
+    theme: basic
+    sub-theme: basic
+    name: jars
+    author of code: Evgeny @missingdays Bovykin
+
+'''
 
 #Get number of jars and number of operations
 n = raw_input().split()

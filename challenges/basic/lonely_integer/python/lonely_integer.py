@@ -1,3 +1,13 @@
+'''
+    type: challenge solution
+    theme: basic
+    sub-theme: basic
+    name: lonely integer
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 #Function that finds lonely integer
 def lonelyinteger(b):
 
