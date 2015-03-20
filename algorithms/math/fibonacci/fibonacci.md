@@ -17,4 +17,6 @@ F<sub>1</sub> = 1
 The Fibonacci sequence is named after Fibonacci. His 1202 book Liber Abaci introduced the sequence to Western European mathematics, although the sequence had been described earlier in Indian mathematics. By modern convention, the sequence begins either with F<sub>0</sub> = 0 or with F<sub>1</sub> = 1. The Liber Abaci began the sequence with F<sub>1</sub> = 1.
 
 ##Visualazition
+The Fibonacci numbers are the sums of the "shallow" diagonals (shown in red) of [Pascal's triangle](https://github.com/missingdays/algorithms-library/tree/master/algorithms/math/pascals_triangle/c%2B%2B).
+
 ![Fibonacci](http://upload.wikimedia.org/wikipedia/commons/b/bf/PascalTriangleFibanacci.svg)
