@@ -1,0 +1,2 @@
+- Christos Papadimitriou - [Elements of the theory of computation](http://home.iitj.ac.in/~ug201210024/book/a/3.pdf) (PDF)
+- Thomas Cormen - [Introduction to algorithms] (http://mitpress.mit.edu/books/introduction-algorithms)
