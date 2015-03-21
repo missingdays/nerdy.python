@@ -21,9 +21,9 @@ Worst O(n)
 
 ###Search
 
-Average O(logn)
+Average O(n)
 
-Worst O(logn)
+Worst O(n)
 
 ###Insert
 
