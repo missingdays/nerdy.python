@@ -6,7 +6,7 @@ Basic sorting algorithm
 ##Idea
 Algorithm builds sorted array one item at time.
 ##Real use
-Algorithm is very easy to implements. Efficient only for (quite) small data sets.
+Algorithm is very easy to implement. Efficient only for (quite) small data sets.
 
 ##Performance and complexity
 Complexity O(n<sup>2</sup>).
