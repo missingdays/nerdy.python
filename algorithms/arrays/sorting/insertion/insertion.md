@@ -11,9 +11,9 @@ Although it is one of the elementary sorting algorithms with O(n2) worst-case ti
 For these reasons, and because it is also stable, insertion sort is often used as the recursive base case (when the problem size is small) for higher overhead divide-and-conquer sorting algorithms, such as merge sort or quick sort.
 
 ##Performance and complexity
-Complexity O(n<sup>2</sup>).
+Complexity worst O(n<sup>2</sup>).
 
-**Performance doesn't depend on elements' order or structure.**
+Complexity best o(n)
 
 Memory O(1).
 
