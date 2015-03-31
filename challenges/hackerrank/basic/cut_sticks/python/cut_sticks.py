@@ -2,7 +2,7 @@
     type: challenge solution
     theme: basic
     sub-theme: basic
-    name: chocolate feast
+    name: cut the sticks
     author of code: Evgeny @missingdays Bovykin
 
 '''
