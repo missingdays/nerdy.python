@@ -1,19 +1,30 @@
-def checkPali(s):
-    pali = True
-    for i in range(len(s)):
-        if s[i] != s[len(s)-1-i]:
-            pali = False
 
-    return pali
+def is_palindrome(s, i):
+    f = 0
+    l = len(s) - 1
 
+    while f < len(s)//2:
+        if f == i:
+            f += 1
+        if s[f] != s[l]:
+            return False
+        l += 1
+        f += 1
+    return True
+
+def get_index(s, n):
+    for i in range(n // 2):
+        if s[i] != s[n-i-1]:
+            if is_palindrome(s, i):
+                return i
+            else:
+                return n-i-1
+    return -1
 
 for i in range(int(input())):
-    index = -1
     s = input()
+    n = len(s)
 
-    for k in range(len(s)):
-        if s[k] != s[len(s)-1-k]:
-            if checkPali(s[:k] + s[k+1:]):
-                index = k
+    index = get_index(s, n)
 
     print(index)
