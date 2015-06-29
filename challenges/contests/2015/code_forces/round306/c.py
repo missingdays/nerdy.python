@@ -10,16 +10,15 @@
 
 """
 
+from itertools import combinations
+
 def check(s):
-    for i in range(len(s)-2):
-        for j in range(i+1, len(s)-1):
-            for k in range(j+1, len(s)):
-                if int(s[i] + s[j] + s[k]) % 8 == 0:
-                    return int(s[i]+s[j] + s[k])
-    for i in range(len(s)-1):
-        for j in range(i+1, len(s)):
-            if int(s[i]+s[j]) % 8 == 0:
-                return int(s[i]+s[j])
+    for i, j, k in combinations(s, 3):
+        if int(i + j + k) % 8 == 0:
+            return int(i + j + k)
+    for i, j in combinations(s,2):    
+        if int(i + j) % 8 == 0:
+            return int(i + j)
     return -1        
 
 s = input()
