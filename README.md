@@ -6,6 +6,7 @@ Upcoming Wiki and code storage for algorithms, data structures and challenges an
 ## What's the point?
 Firstly, this is my personal storage for algorithms and data structures in whole bunch of languages. Secondly, this repository is a great way to learn algorithms from scratch.
 The idea is to store all information about all algorithms in one place, to have code simple, fully commented and documented.
+In future this will turn into universal library for algorithms in most used languages.
 
 ##How to use it?
 Just clone it localy and execute any file you want. It's that easy!
