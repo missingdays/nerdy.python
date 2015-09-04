@@ -1,3 +1,13 @@
+'''
+    type: structure
+    theme: collections
+    sub-theme: sets
+    name: set
+    author of code: Evgeny @missingdays Bovykin
+
+'''
+
+
 class Set():
     values = []	
 
