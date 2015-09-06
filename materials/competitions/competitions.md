@@ -6,4 +6,5 @@
     - [CodeFigts](https://codefights.com)
 
 - Algorithms games
-    -[CodingGame](https://www.codingame.com/)
+
+    - [CodingGame](https://www.codingame.com/)
