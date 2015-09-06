@@ -4,16 +4,16 @@
 # vim
 
 *~
-*.swp"
+*.swp
 
 
 # node
 
 node_modules 
 logs 
-npm-debug.log*"
-.grunt"
-coverage"
+npm-debug.log
+.grunt
+coverage
 
 
 # ruby
