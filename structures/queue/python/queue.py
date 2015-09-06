@@ -10,7 +10,6 @@
 
 class Queue():
 
-
     def __init__(self, size):
 
         #Array where we will store out values
