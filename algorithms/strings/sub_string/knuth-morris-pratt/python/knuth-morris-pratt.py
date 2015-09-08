@@ -38,3 +38,4 @@ def index(origin, sub):
 print(index("hello", "o"))    
 print(index("hello", "llo"))    
 print(index("hello world", "world"))    
+print(index("hello world", "wrld"))
