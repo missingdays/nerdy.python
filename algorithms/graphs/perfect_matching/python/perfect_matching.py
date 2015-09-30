@@ -36,7 +36,7 @@ def clear(N):
 N = 5 # number of boys and girls
 
 # Boys' preferences 
-# e.x. boys[0] like 'c' the most, then 'b' and so on
+# e.x. boys[0] likes 'c' the most, then 'b' and so on
 boys = [
          [ "c", "b", "e", "a", "d" ],
          [ "a", "b", "e", "c", "d" ],
