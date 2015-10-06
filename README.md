@@ -17,7 +17,8 @@ We are trying to make every file as independent as possible so you can use it on
 
 ## Where to find stuff?
 C_school is where basic algorithms and tasks in C are stored. This is a great place to start your journey.
-Most of algorithms are stored in main.
+Most of algorithms are stored in algorithms and data sctructures in data_sctrucutres. All contests you can find in contests. contests/challenges are separated in years.
+Materials is the library of books, videos, articles, competitions, courses etc. that relate to algortihms and data structures or computer science.
 
 ## Why to store full Qt projects?
 Qt projects are only stored in c_school. We store raw C/C++ in main.
