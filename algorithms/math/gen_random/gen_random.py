@@ -36,7 +36,7 @@ class Generator():
 
 generator = Generator()
 
-# These are always the same
+# These are always the same from call to call
 print(generator.gen())
 print(generator.gen())
 print(generator.gen())
