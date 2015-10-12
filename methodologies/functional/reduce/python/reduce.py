@@ -32,14 +32,12 @@ def reduce(a, f, initial):
     return reduce(a[1:], f, f(initial, a[0]))
 
 def functional_sum(a):
-    def sum(a, b):
-        return a + b
-    return reduce(a, sum, 0)
+    s = lambda a, b: a + b
+    return reduce(a, s, 0)
 
 def functional_mul(a):
-    def mul(a, b):
-        return a * b
-    return reduce(a, mul, 1)
+    m = lambda a, b: a * b
+    return reduce(a, m, 1)
 
 # Are they equal?
 
