@@ -88,3 +88,7 @@ var/
 *.exe
 /target
 
+# haskell
+
+*.hi
+*.o
