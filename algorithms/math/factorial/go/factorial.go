@@ -11,7 +11,7 @@ package main
 
 import "fmt"
 
-func factorial(n int) int{
+func Factorial(n int) int{
 
   if n == 0 || n == 1{
 
@@ -32,7 +32,7 @@ func factorial(n int) int{
 func main() {
 
   for i := 0; i < 10; i++{
-    fmt.Println(factorial(i))
+    fmt.Println(Factorial(i))
   }
 
 }

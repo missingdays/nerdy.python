@@ -19,5 +19,11 @@ def factorial(n):
 
     return a
 
-for i in range(1, 10):
-    print("Factorial of ", i, "equals", factorial(i))
+if __name__ == "__main__":
+    assert factorial(0) == 1
+    assert factorial(1) == 1
+    assert factorial(2) == 2
+    assert factorial(3) == 6
+    assert factorial(4) == 24
+    assert factorial(20) == 2432902008176640000
+    print("Factorial python done")
