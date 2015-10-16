@@ -19,5 +19,16 @@ def fibonacci(n):
 
     return b
 
-for i in range(1, 10):
-    print(fibonacci(i))
+if __name__ == "__main__":
+    assert fibonacci(1) == 0
+    assert fibonacci(2) == 1
+    assert fibonacci(3) == 1
+    assert fibonacci(4) == 2
+    assert fibonacci(5) == 3
+    assert fibonacci(6) == 5
+    assert fibonacci(7) == 8
+    assert fibonacci(8) == 13
+    assert fibonacci(9) == 21
+    assert fibonacci(10) == 34
+
+    print("Fibonacci python done")
