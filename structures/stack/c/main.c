@@ -26,5 +26,20 @@ int main(void){
 	assert(elem == 2);
 
 	assert(s->size == 4);
+
+	elem = pop(s);
+	assert(elem == 1);
+
+	pop(s);
+	assert(stack_error == ERR_EMPTY_STACK_POP);
+
+	push(s, 10);
+	push(s, 20);
+	push(s, 30);
+	push(s, 40);
+
+	elem = pick(s);
+	assert(elem == 40);
+	assert(s->size == 8);
 }
 

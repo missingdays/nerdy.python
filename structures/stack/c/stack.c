@@ -3,13 +3,9 @@
 
 #include "stack.h"
 
-#define ERR_EMPTY_STACK_POP 1
-
-int stack_error;
-
 stack *Stack(){
 	stack *s = (stack *)malloc(sizeof(stack));
-	s->size = 4;
+	s->size = STACK_INIT_SIZE;
 	s->current_size = 0;
 	s->elems = (int *)malloc(sizeof(int)*s->size);
 
@@ -51,7 +47,9 @@ int pop(stack *s){
 	int elem = s->elems[s->current_size];
 	return elem;
 }
-
+int pick(stack *s){
+	return s->elems[s->current_size-1];
+}
 void print_stack(stack *s){
 	printf("[");
 	for(int i = 0; i < s->current_size; i++){
