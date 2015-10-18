@@ -10,9 +10,9 @@
 
 class HashTable:
 
-    def __init__(self):
+    def __init__(self, size):
 
-        self.size = 11
+        self.size = size
 
         self.slots = [None] * self.size
 
@@ -72,12 +72,14 @@ class HashTable:
         self.put(key,data)
 
 
-hashTable = HashTable()
+if __name__ == "__main__":
+  h = HashTable(11)
 
-hashTable[40] = "Tiger"
+  h[10] = "hello"
+  assert h[10] == "hello"
+  assert h[20] == None
 
-print(hashTable[40])
+  h[10] = "world"
+  assert h[10] == "world"
 
-print(hashTable.data) #Nones and tiger
-
-print(hashTable.slots) #Nones and 40
+  print("Basic hash table python done")
