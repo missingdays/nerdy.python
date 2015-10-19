@@ -1,0 +1,3 @@
+
+test:
+	$(MAKE) -C c
