@@ -12,28 +12,36 @@ stack *Stack(){
 	return s;
 }
 
-void push(stack *s, int elem){
-	if(s->current_size == s->size - 1){
-		*(s) = realloc(s, s->size*2);
-	}
-
-	s->elems[s->current_size] = elem;
-	s->current_size++;
+stack *realloc_stack(stack *s, int size){
+    s->size = size;
+    return realloc(s, sizeof(int)*size);
 }
 
-int pop(stack *s){
+stack *push(stack *s, int elem){
+	if(s->current_size == s->size - 1){
+		s = realloc_stack(s, s->size*2);
+	}
+	s->elems[s->current_size] = elem;
+	s->current_size++;
+    
+    return s;
+}
+
+stack *pop(stack *s, int *to){
 	if(s->current_size == 0){
 		stack_error = ERR_EMPTY_STACK_POP;
-		return 0;
+        return s;
 	}
-	if(s->current_size < s->size/4){
-		*(s) = realloc(s, s->size/2);
+	if(s->current_size < s->size/4 && s->size > 4){
+		s = realloc_stack(s, s->size/2);
 	}
 
 	s->current_size--;
-	int elem = s->elems[s->current_size];
-	return elem;
+	*(to) = s->elems[s->current_size];
+
+    return s;
 }
+
 int pick(stack *s){
 	return s->elems[s->current_size-1];
 }
