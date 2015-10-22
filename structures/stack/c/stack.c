@@ -12,22 +12,9 @@ stack *Stack(){
 	return s;
 }
 
-stack realloc_stack(stack *s, int size){
-	stack *new_stack = (stack *)malloc(sizeof(stack));
-	new_stack->size = size;
-	new_stack->current_size = s->current_size;
-	new_stack->elems = (int *)malloc(sizeof(int)*size);
-
-	for(int i = 0; i < size; i++){
-		new_stack->elems[i] = s->elems[i];
-	}
-
-	return *(new_stack);
-}
-
 void push(stack *s, int elem){
 	if(s->current_size == s->size - 1){
-		*(s) = realloc_stack(s, s->size*2);
+		*(s) = realloc(s, s->size*2);
 	}
 
 	s->elems[s->current_size] = elem;
@@ -39,10 +26,10 @@ int pop(stack *s){
 		stack_error = ERR_EMPTY_STACK_POP;
 		return 0;
 	}
-	if(s->current_size < s->size/2){
-		*(s) = realloc_stack(s, s->size/2);
+	if(s->current_size < s->size/4){
+		*(s) = realloc(s, s->size/2);
 	}
-	
+
 	s->current_size--;
 	int elem = s->elems[s->current_size];
 	return elem;
