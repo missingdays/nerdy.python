@@ -10,7 +10,7 @@ typedef struct
 } stack;
 
 stack *Stack();
-stack *push(stack *s, int elem);
-stack *pop(stack *s, int *elem);
+void push(stack *s, int elem);
+int pop(stack *s);
 int pick(stack *s);
 void print_stack(stack *s);

@@ -14,32 +14,30 @@ stack *Stack(){
 
 stack *realloc_stack(stack *s, int size){
     s->size = size;
-    return realloc(s, sizeof(int)*size);
+    s->elems = (int *)realloc(s->elems, sizeof(int)*size);
 }
 
-stack *push(stack *s, int elem){
+void push(stack *s, int elem){
 	if(s->current_size == s->size - 1){
-		s = realloc_stack(s, s->size*2);
+		realloc_stack(s, s->size*2);
 	}
 	s->elems[s->current_size] = elem;
 	s->current_size++;
-    
-    return s;
 }
 
-stack *pop(stack *s, int *to){
+int pop(stack *s){
 	if(s->current_size == 0){
 		stack_error = ERR_EMPTY_STACK_POP;
-        return s;
+        return 0;
 	}
 	if(s->current_size < s->size/4 && s->size > 4){
-		s = realloc_stack(s, s->size/2);
+		realloc_stack(s, s->size/2);
 	}
 
 	s->current_size--;
-	*(to) = s->elems[s->current_size];
+	int elem = s->elems[s->current_size];
 
-    return s;
+    return elem;
 }
 
 int pick(stack *s){
