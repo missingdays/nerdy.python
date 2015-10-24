@@ -12,15 +12,13 @@
 
 n = int(input())
 
-def DFS(node, name, found):
+def DFS(node, name):
     if node.name == name:
         return node
-    found.add(node)
     for child in node.childs:
-        if not child in found:
-            n = DFS(child, name, found)
-            if n != None:
-                return n
+        n = DFS(child, name)
+        if n != None:
+            return n
     return None
 
 class Node():
@@ -33,8 +31,7 @@ class Tree():
         self.root = root
 
     def add(self, name, to):
-        found = set()
-        node = DFS(self.root, to, found)
+        node = DFS(self.root, to)
         node.childs.append(Node(name))
 
     def max_depth(self, node):
