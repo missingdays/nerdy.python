@@ -6,7 +6,7 @@
 -- Distributed under terms of the MIT license.
 --
 
+module Factorial where
+
 fac 0 = 1
 fac n = fac(n-1) * n
-
-main = print(fac 10)
