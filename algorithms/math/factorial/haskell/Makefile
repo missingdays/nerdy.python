@@ -5,6 +5,7 @@
 
 test: build
 	./spec
+	rm spec
 
 build:
 	ghc --make spec.hs
