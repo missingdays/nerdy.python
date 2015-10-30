@@ -1,0 +1,3 @@
+
+build:
+	$(MAKE) -C haskell
