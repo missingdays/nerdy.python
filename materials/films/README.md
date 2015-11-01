@@ -7,4 +7,4 @@
 ## Physics
 
 1. [Interstellar.]() Epic science fiction film about space traveling.
-2. [The Martian.]() Sci-fi drama about one person surviving on Mars for more than year. 
+2. [The Martian.]() Sci-fi drama about one person surviving on Mars for more than a year. 
