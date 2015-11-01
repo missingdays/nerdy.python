@@ -1,7 +1,7 @@
 > Films will only be listed in English since translation doesn't really matter and can be easily found.
 > Please note, that this films are not scientific, but rather just can be interested from the science perspective.
 
-## Computer Sciens
+## Computer Science
 
 1. [Chappie.]() Sci-fi action about Artificial Intelligence.
 2. [Mr. Robot]() TV series about cybersecurity and hackers.
