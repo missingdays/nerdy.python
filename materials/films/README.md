@@ -16,3 +16,7 @@
 1. [Interstellar.]() Epic science fiction film about space traveling.
 2. [The Martian.]() Sci-fi drama about one person surviving on Mars for more than a year. 
 3. [Hawking (2004).]() A drama documenting the life and work of the theoretical physicist Professor Stephen Hawking who, despite being diagnosed with motor neurone disease at the age of 21, has galvanized the scientific world with his ground-breaking work on the nature of the universe.
+
+## Chess
+
+1. [Pawn Cacrifice.]() The biography of one of the most famous chess players - Bobby Fischer
