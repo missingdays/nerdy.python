@@ -12,7 +12,7 @@ stack *Stack(){
 	return s;
 }
 
-stack *realloc_stack(stack *s, int size){
+void realloc_stack(stack *s, int size){
     s->size = size;
     s->elems = (int *)realloc(s->elems, sizeof(int)*size);
 }

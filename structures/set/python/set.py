@@ -7,32 +7,43 @@
 
 '''
 
+class Set:
 
-class Set():
-    values = []	
+    def __init__(self):
+        self.keys = {}
 
-    def __init__(self, element=None):
-        if type(element) is list: 
-            self.set_array(element)
-        elif element is not None:
-            selt.set_elem(element)
+    def add(self, value):
+        self.keys[value] = 0 # use any dummy value here
 
-    def set_elem(self, element):
-        if not element in self.values:
-            self.values.append(element)
+    def has(self, value):
+        return value in self.keys
 
-    def set_array(self, array):
-        for elem in array:
-            self.set_elem(elem)
+    def __contains__(self, value):
+        return self.has(value)
 
-    def get_values(self):
-            return self.values
-    
-    def elem_exists(self, element):
-            return element in self.values 	
+    def remove(self, value):
+        del self.keys[value]
 
-my_set = Set()
-my_set.set_elem(5)
-my_set.set_array([5,4,3])
-print(my_set.get_values())
-print(my_set.elem_exists(3))
+
+if __name__ == "__main__":
+
+    s = Set()
+
+    s.add(1)
+    s.add(2)
+    s.add(3)
+
+    assert 1 in s
+    assert 2 in s
+    assert 3 in s
+    assert 4 not in s
+
+    s.remove(1)
+
+    assert 1 not in s
+
+    s.add(1)
+
+    assert 1 in s
+
+    print("Set python done")
