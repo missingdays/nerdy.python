@@ -131,3 +131,4 @@ if __name__ == "__main__":
     assert tree.query(1, 3) == 19
     assert tree.query(4, 5) == 6
 
+    print("Segment tree python done")
