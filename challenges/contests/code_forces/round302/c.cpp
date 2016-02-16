@@ -56,7 +56,8 @@ int main(int argc, const char *argv[]){
                     dp[i][j][k] += dp[i][j-1][k - a[_i-1]];
                 }
 
-                while(dp[i][j][k] >= mod) dp[i][j][k] -= mod;
+                dp[i][j][k] %= mod;
+                //while(dp[i][j][k] >= mod) dp[i][j][k] -= mod;
             }
         }
     }
@@ -65,7 +66,8 @@ int main(int argc, const char *argv[]){
 
     for(int i = 0; i <= bugs; i++){
         answ += dp[n%2][lines][i];
-        while(answ >= mod) answ -= mod;
+        answ %= mod;
+        //while(answ >= mod) answ -= mod;
     }
 
     printf("%d\n", answ);
