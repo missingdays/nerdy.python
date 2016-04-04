@@ -64,15 +64,48 @@ int build_tree(int A[], int a, int b, int_tn * tn) {
 
 }
 
-int RMQ(const int_tn & TREE, int val)
+void set_value(int A [], int size, int idx, int val)
 {
+	int mididx = size / 2 + 1;
+	A[idx] = val;
+	if (idx < mididx)
+	{
+		/* We must update left branch of tree 
+			cause index < mid*/
+		int rval = TREE._right->val; //Get right branch minimum value
+		int lval = build_tree(A, 0, size/2, &TREE);
+		if (rval > lval) {
+			TREE.val = lval;
+			return ;
+		}
+		else 
+		{
+			TREE.val = rval;
+			return ;
+		}
 
+	}
+	else // If index < mid ( in right part)
+	{
+		int lval = TREE._left->val;
+		int rval = build_tree(A, (size/2)+1, size, &TREE);
+		if (rval > lval) {
+			TREE.val = lval;
+			return ;
+		}
+		else 
+		{
+			TREE.val = rval;
+			return ;
+		}
+	}
 }
 
 
 int main(int argc, char * argv[]) {
-    int A[] = { 1 , 20, 0, 5, 13, 3, 7, 2, 6, 1, 4, 2, 6 , -1 , 19, 53};
+    int A[] = {10, 20, 8, 4, 0, 2, 9};
     build_tree(A, 0, 6, &TREE);
+    set_value(A, 6, 4, 25);
     std::cout << endl << endl <<TREE.val;
     return 0;
 }
