@@ -34,7 +34,6 @@ int build_tree(int A[], int a, int b, int_tn * tn) {
             return a;
         }
         if (abs(a - b) == 1){
-            cout << "If " << a << "  " << b << "\n";
             if (A[a] < A[b]){
             tn->val = a; return a;}
             else{
@@ -42,7 +41,6 @@ int build_tree(int A[], int a, int b, int_tn * tn) {
         }
         else
         {
-            std::cout << "Else " << a << "  " << b << "\n";
             int n;
             int leftId = ( a + b ) / 2 + 1; /* For right side */
             int rightId = ( a + b ) / 2; /* For left side */
@@ -50,7 +48,6 @@ int build_tree(int A[], int a, int b, int_tn * tn) {
             tn->_right = new int_tn;
             int lSide = build_tree(A, a, rightId, tn->_left);
             int rSide = build_tree(A, leftId, b, tn->_right);
-            std::cout << "lSide " << lSide << "  rSide " << rSide << "\n";
             if (A[lSide] < A[rSide]){
                 tn->val = lSide;
                 return lSide;
@@ -67,14 +64,16 @@ int build_tree(int A[], int a, int b, int_tn * tn) {
 void set_value(int A [], int size, int idx, int val)
 {
 	int mididx = size / 2 + 1;
+
 	A[idx] = val;
+
 	if (idx < mididx)
 	{
 		/* We must update left branch of tree 
 			cause index < mid*/
 		int rval = TREE._right->val; //Get right branch minimum value
 		int lval = build_tree(A, 0, size/2, &TREE);
-		if (rval > lval) {
+		if (A[rval] > A[lval]) {
 			TREE.val = lval;
 			return ;
 		}
@@ -88,8 +87,8 @@ void set_value(int A [], int size, int idx, int val)
 	else // If index < mid ( in right part)
 	{
 		int lval = TREE._left->val;
-		int rval = build_tree(A, (size/2)+1, size, &TREE);
-		if (rval > lval) {
+		int rval = build_tree(A, (size/2)+1, size, &TREE); /* Updating right branch*/
+		if (A[rval] > A[lval]) {
 			TREE.val = lval;
 			return ;
 		}
@@ -105,7 +104,7 @@ void set_value(int A [], int size, int idx, int val)
 int main(int argc, char * argv[]) {
     int A[] = {10, 20, 8, 4, 0, 2, 9};
     build_tree(A, 0, 6, &TREE);
-    set_value(A, 6, 4, 25);
+   	set_value(A, 6, 4, 30);
     std::cout << endl << endl <<TREE.val;
     return 0;
 }
