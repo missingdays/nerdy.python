@@ -1,3 +1,3 @@
 
 build:
-	g++ main.cpp -o tree_queries
+	g++ sort_tree.hpp -std=c++11 -o  tree_queries
