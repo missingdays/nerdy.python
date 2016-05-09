@@ -12,37 +12,25 @@ class Stack():
 
     def __init__(self, size):
 
-        #Array where we will store out values
-        self.array_ = [0] * size
+        #Array where we will store our values
+        self._array = [0] * size
 
-        #Size of current stack
         self.top = 0
 
-    #Check whether stack is empty
     def isEmpty(self):
-
         return self.top == 0
 
-    #Add new value to the end of stack
     def push(self, value):
-
-        #Increment the size of the stack
         self.top = self.top + 1
 
-        #Add value to the end of stack
-        self.array_[self.top - 1] = value
+        self._array[self.top - 1] = value
 
-    #Return last value that was pushed
     def pop(self):
 
-        #If stack is not empty
-        if(not self.isEmpty()):
-
-            #Decrement the size of the stack
+        if not self.isEmpty():
             self.top = self.top - 1
 
-            #Return last value
-            return self.array_[self.top]
+            return self._array[self.top]
 
 #Create new stack
 stack = Stack(3)

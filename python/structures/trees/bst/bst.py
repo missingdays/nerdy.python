@@ -222,7 +222,7 @@ binary_tree[2]="at"
 
 #Print values
 print(binary_tree[6]) #yellow
-print(binary_tree[2]) #ar
+print(binary_tree[2]) #at
 
 #Delete by key
 binary_tree.delete(2)
