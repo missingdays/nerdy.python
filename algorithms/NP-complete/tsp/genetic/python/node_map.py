@@ -2,6 +2,8 @@
 import random
 import time
 
+from node import Node
+
 random.seed(time.time())
 
 class NodeMap:
@@ -12,17 +14,29 @@ class NodeMap:
         for node in nodes:
             self.nodes.append(node.copy())
 
+    def copy(self):
+        return NodeMap(self.nodes)
+
     def addNode(self, node):
         self.nodes.append(node)
 
     def __len__(self):
         return len(self.nodes)
 
+    def __str__(self):
+        s = ""
+
+        for node in self.nodes:
+            s += str(node)
+            s += "\n"
+
+        return s
+
     def getOverallDistance(self):
 
         distance = 0
 
-        for i in range(len(nodes) - 1):
+        for i in range(len(self.nodes) - 1):
             distance += self.nodes[i].distanceTo(self.nodes[i+1])
 
         return distance
@@ -31,7 +45,7 @@ class NodeMap:
         random.shuffle(self.nodes)
 
     def mutate(self):
-        self.hardMutate()
+        self.weakMutate()
 
     def hardMutate(self):
         mutations = 10
@@ -71,7 +85,7 @@ class NodeMap:
 
         currentIndex = 0
 
-        while currentIndex not in seedIndexes:
+        while currentIndex not in seenIndexes:
             seenIndexes.add(currentIndex)
 
             currentIndex = nodeMap2.getNodeIndex(nodeMap1.nodes[currentIndex])
@@ -81,6 +95,13 @@ class NodeMap:
     def getNodeIndex(self, nodeToFind):
         idToFind = nodeToFind.id
 
-        for index, node in enumerate(nodeMap2.nodes):
+        for index, node in enumerate(self.nodes):
             if node.id == idToFind:
                 return index
+
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
