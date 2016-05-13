@@ -9,7 +9,7 @@ random.seed(time.time())
 
 class TSPSolver:
 
-    def __init__(self, gensToSurvive=0.5, sizeOfPopulation=10, numberOfCycles=100, mutationProbability=0.1, targetNodeMap=None):
+    def __init__(self, gensToSurvive=0.5, sizeOfPopulation=10, numberOfCycles=100, mutationProbability=0.02, targetNodeMap=None):
         self.gensToSurvive = gensToSurvive
         self.sizeOfPopulation = sizeOfPopulation
         self.numberOfCycles = numberOfCycles
@@ -66,7 +66,7 @@ class TSPSolver:
     def performCycle(self, index):
         self.leaveBestOfGens()
         self.produceNewGens()
-        self.mutateSome()
+        self.performMutate()
 
     def leaveBestOfGens(self):
         self.sortGensByFitness()
@@ -91,10 +91,9 @@ class TSPSolver:
 
         self.population = newPopulation
 
-    def mutateSome(self):
+    def performMutate(self):
         for gen in self.population:
-            if random.random() < self.mutationProbability:
-                gen.mutate()
+            gen.mutate(self.mutationProbability)
 
     def sortGensByFitness(self):
         self.population.sort(key=lambda gen: TSPSolver.fitness(gen))
@@ -109,10 +108,7 @@ class TSPSolver:
                 print("\n")
 
     def afterSolve(self):
-        if self.debug:
-
-            print("Best node map is")
-            print(self.getBestNodeMap())
+        pass
 
     def getBestNodeMap(self):
         self.sortGensByFitness()
@@ -131,7 +127,7 @@ def main():
     nodes = []
 
     j = 1
-    for i in range(10):
+    for i in range(30):
         nodes.append(Node(i+j, i+j, i))
 
     nodeMap = NodeMap(nodes)
@@ -139,11 +135,19 @@ def main():
     tspSolver = TSPSolver()
     tspSolver.setTargetNodeMap(nodeMap)
     tspSolver.sizeOfPopulation = 100
-    tspSolver.numberOfCycles = 1000
+    tspSolver.numberOfCycles = 10000
 
     tspSolver.debug = True
 
     tspSolver.solve()
+
+    bestNodeMap = tspSolver.getBestNodeMap()
+
+    print("Best plate is")
+    print(bestNodeMap)
+    print("It's distance is ", bestNodeMap.getOverallDistance())
+    print("Target nodeMap distance was ", nodeMap.getOverallDistance())
+
 
 if __name__ == "__main__":
     main()

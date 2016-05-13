@@ -44,8 +44,8 @@ class NodeMap:
     def shuffle(self):
         random.shuffle(self.nodes)
 
-    def mutate(self):
-        self.weakMutate()
+    def mutate(self, mutationProbability):
+        self.weakMutate(mutationProbability)
 
     def hardMutate(self):
         mutations = 10
@@ -53,10 +53,12 @@ class NodeMap:
         for i in range(mutations):
             self.weakMutate()
 
-    def weakMutate(self):
-        i = random.randint(0, len(self.nodes) - 2) # not including last element
+    def weakMutate(self, mutationProbabilty):
+        for i in range(len(self.nodes)):
+            if random.random() < mutationProbabilty:
+                j = random.randint(0, len(self.nodes)-1)
 
-        self.nodes[i], self.nodes[i+1] = self.nodes[i+1], self.nodes[i]
+                self.nodes[i], self.nodes[j] = self.nodes[j], self.nodes[i]
 
     '''
     Produces new child based on self and nodeMap.
