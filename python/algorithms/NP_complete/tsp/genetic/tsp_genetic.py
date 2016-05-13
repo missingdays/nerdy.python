@@ -4,17 +4,20 @@ import time
 
 from node import Node
 from node_map import NodeMap
+from crossover import *
 
 random.seed(time.time())
 
 class TSPSolver:
 
-    def __init__(self, gensToSurvive=0.5, sizeOfPopulation=10, numberOfCycles=100, mutationProbability=0.02, targetNodeMap=None):
+    def __init__(self, gensToSurvive=0.5, sizeOfPopulation=10, numberOfCycles=100, 
+            mutationProbability=0.05, targetNodeMap=None, crossover=CXCrossover):
         self.gensToSurvive = gensToSurvive
         self.sizeOfPopulation = sizeOfPopulation
         self.numberOfCycles = numberOfCycles
         self.mutationProbability = mutationProbability
         self.targetNodeMap = targetNodeMap
+        self.crossover = crossover
 
         self.population = []
 
@@ -85,7 +88,7 @@ class TSPSolver:
             n1 = random.randint(0, size-1)
             n2 = random.randint(0, size-1)
 
-            child = self.population[n1].crossover(self.population[n2])
+            child = self.crossover(self.population[n1], self.population[n2])
 
             newPopulation.append(child)
 
@@ -96,7 +99,13 @@ class TSPSolver:
             gen.mutate(self.mutationProbability)
 
     def sortGensByFitness(self):
+        self.calculateGensDistances()
         self.population.sort(key=lambda gen: TSPSolver.fitness(gen))
+
+    def calculateGensDistances(self):
+
+        for gen in self.population:
+            gen.preCalculateDistance()
 
     def afterCycle(self, index):
         if self.debug:
@@ -134,8 +143,10 @@ def main():
 
     tspSolver = TSPSolver()
     tspSolver.setTargetNodeMap(nodeMap)
+    tspSolver.mutationProbability = 0.02
+    tspSolver.gensToSurvive = 0.3
     tspSolver.sizeOfPopulation = 100
-    tspSolver.numberOfCycles = 10000
+    tspSolver.numberOfCycles = 20000
 
     tspSolver.debug = True
 

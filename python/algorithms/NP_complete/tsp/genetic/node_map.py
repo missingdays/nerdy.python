@@ -11,6 +11,8 @@ class NodeMap:
     def __init__(self, nodes):
         self.nodes = []
 
+        self.distance = None
+
         for node in nodes:
             self.nodes.append(node.copy())
 
@@ -19,6 +21,8 @@ class NodeMap:
 
     def addNode(self, node):
         self.nodes.append(node)
+
+        self.distance = None
 
     def __len__(self):
         return len(self.nodes)
@@ -34,6 +38,9 @@ class NodeMap:
 
     def getOverallDistance(self):
 
+        if self.distance != None:
+            return self.distance
+
         distance = 0
 
         for i in range(len(self.nodes) - 1):
@@ -41,11 +48,18 @@ class NodeMap:
 
         return distance
 
+    def preCalculateDistance(self):
+        self.distance = self.getOverallDistance()
+
     def shuffle(self):
         random.shuffle(self.nodes)
 
+        self.distance = None
+
     def mutate(self, mutationProbability):
         self.weakMutate(mutationProbability)
+
+        self.distance = None
 
     def hardMutate(self):
         mutations = 10
@@ -54,32 +68,10 @@ class NodeMap:
             self.weakMutate()
 
     def weakMutate(self, mutationProbabilty):
-        for i in range(len(self.nodes)):
+        for i in range(len(self.nodes)-1):
             if random.random() < mutationProbabilty:
-                j = random.randint(0, len(self.nodes)-1)
+                self.nodes[i], self.nodes[i+1] = self.nodes[i+1], self.nodes[i]
 
-                self.nodes[i], self.nodes[j] = self.nodes[j], self.nodes[i]
-
-    '''
-    Produces new child based on self and nodeMap.
-    Uses cycle crossover
-    '''
-    def crossover(self, nodeMap):
-        nodes = []
-
-        for i in range(len(self)):
-            nodes.append(None)
-
-        cycle = NodeMap.findCycle(self, nodeMap)
-
-        for index in cycle:
-            nodes[index] = self.nodes[index]
-
-        for i in range(len(self)):
-            if nodes[i] == None:
-                nodes[i] = nodeMap.nodes[i]
-
-        return NodeMap(nodes)
 
     @staticmethod
     def findCycle(nodeMap1, nodeMap2):
