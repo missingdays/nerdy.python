@@ -5,19 +5,26 @@ import time
 from node import Node
 from node_map import NodeMap
 from crossover import *
+from selection import *
 
 random.seed(time.time())
 
 class TSPSolver:
 
     def __init__(self, gensToSurvive=0.5, sizeOfPopulation=10, numberOfCycles=100, 
-            mutationProbability=0.05, targetNodeMap=None, crossover=CXCrossover):
+            mutationProbability=0.02, targetNodeMap=None, crossover=CXCrossover, 
+            selection=None):
         self.gensToSurvive = gensToSurvive
         self.sizeOfPopulation = sizeOfPopulation
         self.numberOfCycles = numberOfCycles
         self.mutationProbability = mutationProbability
         self.targetNodeMap = targetNodeMap
         self.crossover = crossover
+
+        if selection == None:
+            self.selection = getBestPartSelection(crossover=crossover)
+        else:
+            self.selection = selection
 
         self.population = []
 
@@ -67,45 +74,15 @@ class TSPSolver:
             self.population.append(gen)
 
     def performCycle(self, index):
-        self.leaveBestOfGens()
-        self.produceNewGens()
+        self.performSelection()
         self.performMutate()
 
-    def leaveBestOfGens(self):
-        self.sortGensByFitness()
-
-        numberOfBest = int(self.sizeOfPopulation * self.gensToSurvive)
-        numberOfWorst = len(self.population) - numberOfBest
-
-        self.population = self.population[numberOfWorst:]
-
-    def produceNewGens(self):
-
-        size = len(self.population)
-        newPopulation = self.population
-
-        while len(newPopulation) < self.sizeOfPopulation:
-            n1 = random.randint(0, size-1)
-            n2 = random.randint(0, size-1)
-
-            child = self.crossover(self.population[n1], self.population[n2])
-
-            newPopulation.append(child)
-
-        self.population = newPopulation
+    def performSelection(self):
+        self.population = self.selection(self.population)
 
     def performMutate(self):
         for gen in self.population:
             gen.mutate(self.mutationProbability)
-
-    def sortGensByFitness(self):
-        self.calculateGensDistances()
-        self.population.sort(key=lambda gen: TSPSolver.fitness(gen))
-
-    def calculateGensDistances(self):
-
-        for gen in self.population:
-            gen.preCalculateDistance()
 
     def afterCycle(self, index):
         if self.debug:
@@ -120,7 +97,7 @@ class TSPSolver:
         pass
 
     def getBestNodeMap(self):
-        self.sortGensByFitness()
+        self.population = TSPSolver.sortGensByFitness(self.population)
 
         return self.population[len(self.population) - 1]
 
@@ -131,21 +108,25 @@ class TSPSolver:
     def fitness(gen):
         return 1 / gen.getOverallDistance()
 
+    @staticmethod
+    def sortGensByFitness(gens):
+        gens.sort(key=lambda gen: TSPSolver.fitness(gen))
+        return gens
 
 def main():
     nodes = []
 
     j = 1
-    for i in range(30):
+    for i in range(50):
         nodes.append(Node(i+j, i+j, i))
 
     nodeMap = NodeMap(nodes)
 
     tspSolver = TSPSolver()
     tspSolver.setTargetNodeMap(nodeMap)
-    tspSolver.mutationProbability = 0.02
+    tspSolver.mutationProbability = 0.01
     tspSolver.gensToSurvive = 0.3
-    tspSolver.sizeOfPopulation = 100
+    tspSolver.sizeOfPopulation = 1000
     tspSolver.numberOfCycles = 20000
 
     tspSolver.debug = True

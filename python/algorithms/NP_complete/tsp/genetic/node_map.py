@@ -1,17 +1,18 @@
-
 import random
 import time
 
 from node import Node
+from mutation import *
 
 random.seed(time.time())
 
 class NodeMap:
 
-    def __init__(self, nodes):
+    def __init__(self, nodes, mutation=randomSwapMutation):
         self.nodes = []
 
         self.distance = None
+        self.mutation = mutation
 
         for node in nodes:
             self.nodes.append(node.copy())
@@ -38,18 +39,17 @@ class NodeMap:
 
     def getOverallDistance(self):
 
-        if self.distance != None:
-            return self.distance
+        #if self.distance != None:
+        #    return self.distance
 
         distance = 0
 
         for i in range(len(self.nodes) - 1):
             distance += self.nodes[i].distanceTo(self.nodes[i+1])
 
-        return distance
+        self.distance = distance
 
-    def preCalculateDistance(self):
-        self.distance = self.getOverallDistance()
+        return distance
 
     def shuffle(self):
         random.shuffle(self.nodes)
@@ -57,34 +57,7 @@ class NodeMap:
         self.distance = None
 
     def mutate(self, mutationProbability):
-        self.weakMutate(mutationProbability)
-
-        self.distance = None
-
-    def hardMutate(self):
-        mutations = 10
-
-        for i in range(mutations):
-            self.weakMutate()
-
-    def weakMutate(self, mutationProbabilty):
-        for i in range(len(self.nodes)-1):
-            if random.random() < mutationProbabilty:
-                self.nodes[i], self.nodes[i+1] = self.nodes[i+1], self.nodes[i]
-
-
-    @staticmethod
-    def findCycle(nodeMap1, nodeMap2):
-        seenIndexes = set()
-
-        currentIndex = 0
-
-        while currentIndex not in seenIndexes:
-            seenIndexes.add(currentIndex)
-
-            currentIndex = nodeMap2.getNodeIndex(nodeMap1.nodes[currentIndex])
-
-        return seenIndexes
+        self.mutation(self.nodes, mutationProbability)
 
     def getNodeIndex(self, nodeToFind):
         idToFind = nodeToFind.id
@@ -92,7 +65,6 @@ class NodeMap:
         for index, node in enumerate(self.nodes):
             if node.id == idToFind:
                 return index
-
 
 def main():
     pass

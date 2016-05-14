@@ -9,7 +9,7 @@ def CXCrossover(nodeMap1, nodeMap2):
     for i in range(len(nodeMap1)):
         nodes.append(None)
 
-    cycle = NodeMap.findCycle(nodeMap1, nodeMap2)
+    cycle = findCycle(nodeMap1, nodeMap2)
 
     for index in cycle:
         nodes[index] = nodeMap1.nodes[index]
@@ -19,3 +19,15 @@ def CXCrossover(nodeMap1, nodeMap2):
             nodes[i] = nodeMap2.nodes[i]
 
     return NodeMap(nodes)
+
+def findCycle(nodeMap1, nodeMap2):
+    seenIndexes = set()
+
+    currentIndex = 0
+
+    while currentIndex not in seenIndexes:
+        seenIndexes.add(currentIndex)
+
+        currentIndex = nodeMap2.getNodeIndex(nodeMap1.nodes[currentIndex])
+
+    return seenIndexes
