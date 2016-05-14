@@ -8,7 +8,7 @@ random.seed(time.time())
 
 class NodeMap:
 
-    def __init__(self, nodes, mutation=randomSwapMutation):
+    def __init__(self, nodes, mutation=randomInsertMutation):
         self.nodes = []
 
         self.distance = None
@@ -65,6 +65,8 @@ class NodeMap:
         for index, node in enumerate(self.nodes):
             if node.id == idToFind:
                 return index
+
+        raise Exception("Couldn't find node " +  str(nodeToFind) + " at " + str(self))
 
 def main():
     pass

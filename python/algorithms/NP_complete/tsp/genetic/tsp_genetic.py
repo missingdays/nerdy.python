@@ -114,20 +114,15 @@ class TSPSolver:
         return gens
 
 def main():
-    nodes = []
-
-    j = 1
-    for i in range(50):
-        nodes.append(Node(i+j, i+j, i))
-
-    nodeMap = NodeMap(nodes)
+    
+    nodeMap = generate_square(100)
 
     tspSolver = TSPSolver()
     tspSolver.setTargetNodeMap(nodeMap)
-    tspSolver.mutationProbability = 0.01
-    tspSolver.gensToSurvive = 0.3
-    tspSolver.sizeOfPopulation = 1000
-    tspSolver.numberOfCycles = 20000
+    tspSolver.mutationProbability = 0.015
+    tspSolver.gensToSurvive = 0.5
+    tspSolver.sizeOfPopulation = 10000
+    tspSolver.numberOfCycles = 2000
 
     tspSolver.debug = True
 
@@ -139,6 +134,30 @@ def main():
     print(bestNodeMap)
     print("It's distance is ", bestNodeMap.getOverallDistance())
     print("Target nodeMap distance was ", nodeMap.getOverallDistance())
+
+def generate_line(size):
+    nodes = []
+
+    for i in range(size):
+        nodes.append(Node(i, i, i))
+
+    return NodeMap(nodes)
+
+def generate_square(size):
+    nodes = []
+
+    side = size // 4
+
+    for i in range(side):
+        nodes.append(Node(0, i, i))
+    for i in range(side):
+        nodes.append(Node(i, side, i+side))
+    for i in range(side):
+        nodes.append(Node(side, side-i, i+side*2))
+    for i in range(side):
+        nodes.append(Node(side-i, 0, i+side*3))
+
+    return NodeMap(nodes)
 
 
 if __name__ == "__main__":
