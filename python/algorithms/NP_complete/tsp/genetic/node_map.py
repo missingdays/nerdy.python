@@ -39,8 +39,8 @@ class NodeMap:
 
     def getOverallDistance(self):
 
-        #if self.distance != None:
-        #    return self.distance
+        if self.distance != None:
+            return self.distance
 
         distance = 0
 
@@ -58,6 +58,8 @@ class NodeMap:
 
     def mutate(self, mutationProbability):
         self.mutation(self.nodes, mutationProbability)
+
+        self.distance = None
 
     def getNodeIndex(self, nodeToFind):
         idToFind = nodeToFind.id

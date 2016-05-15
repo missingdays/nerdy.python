@@ -11,10 +11,9 @@ random.seed(time.time())
 
 class TSPSolver:
 
-    def __init__(self, gensToSurvive=0.5, sizeOfPopulation=10, numberOfCycles=100, 
+    def __init__(self, sizeOfPopulation=10, numberOfCycles=100, 
             mutationProbability=0.02, targetNodeMap=None, crossover=CXCrossover, 
             selection=None):
-        self.gensToSurvive = gensToSurvive
         self.sizeOfPopulation = sizeOfPopulation
         self.numberOfCycles = numberOfCycles
         self.mutationProbability = mutationProbability
@@ -47,11 +46,10 @@ class TSPSolver:
     def beforeSolve(self):
         if self.debug:
 
-            print("TSPSolver running with parameters: ")
-            print("Gens to survive = " + str(self.gensToSurvive))
-
             print("Target node map is ")
             print(str(self.targetNodeMap))
+            print("Its distance is " + str(self.targetNodeMap.getOverallDistance()))
+            print("\n")
 
     def performSolve(self):
 
@@ -115,14 +113,13 @@ class TSPSolver:
 
 def main():
     
-    nodeMap = generate_square(100)
+    nodeMap = generate_square(30)
 
-    tspSolver = TSPSolver()
+    tspSolver = TSPSolver(selection=getBestPartSelection())
     tspSolver.setTargetNodeMap(nodeMap)
-    tspSolver.mutationProbability = 0.015
-    tspSolver.gensToSurvive = 0.5
-    tspSolver.sizeOfPopulation = 10000
-    tspSolver.numberOfCycles = 2000
+    tspSolver.mutationProbability = 0.02
+    tspSolver.sizeOfPopulation = 2000
+    tspSolver.numberOfCycles = 4000
 
     tspSolver.debug = True
 
