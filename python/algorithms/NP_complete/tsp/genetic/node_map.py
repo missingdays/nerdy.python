@@ -8,7 +8,7 @@ random.seed(time.time())
 
 class NodeMap:
 
-    def __init__(self, nodes, mutation=randomReflectPartMutation):
+    def __init__(self, nodes, mutation=shuffleSegmentMutation):
         self.nodes = []
 
         self.distance = None

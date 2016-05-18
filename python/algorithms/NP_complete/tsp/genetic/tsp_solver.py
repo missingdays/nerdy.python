@@ -113,11 +113,11 @@ class TSPSolver:
 
 def main():
     
-    nodeMap = generate_square(50)
+    nodeMap = generate_line(80)
 
     tspSolver = TSPSolver(selection=getBestPartSelection())
     tspSolver.setTargetNodeMap(nodeMap)
-    tspSolver.mutationProbability = 0.02
+    tspSolver.mutationProbability = 0.01
     tspSolver.sizeOfPopulation = 3000
     tspSolver.numberOfCycles = 40000
 
