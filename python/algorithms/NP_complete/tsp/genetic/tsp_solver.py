@@ -85,7 +85,7 @@ class TSPSolver:
     def afterCycle(self, index):
         if self.debug:
             if index % self.debugAfterCycles == 0:
-                print("Cycle " + str(index))
+                print("Cycle " + str(index) + " of " + str(self.numberOfCycles))
                 print("Best node map is")
                 print(self.getBestNodeMap())
                 print("Its distance is " + str(self.getBestNodeMap().getOverallDistance()))
@@ -113,13 +113,13 @@ class TSPSolver:
 
 def main():
     
-    nodeMap = generate_square(30)
+    nodeMap = generate_square(50)
 
     tspSolver = TSPSolver(selection=getBestPartSelection())
     tspSolver.setTargetNodeMap(nodeMap)
     tspSolver.mutationProbability = 0.02
-    tspSolver.sizeOfPopulation = 2000
-    tspSolver.numberOfCycles = 4000
+    tspSolver.sizeOfPopulation = 3000
+    tspSolver.numberOfCycles = 40000
 
     tspSolver.debug = True
 

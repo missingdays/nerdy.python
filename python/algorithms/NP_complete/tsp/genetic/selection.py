@@ -1,6 +1,6 @@
 
 from crossover import *
-from tsp_genetic import *
+from tsp_solver import *
 
 __all__ = ["getBestPartSelection", "getRouletteSelection"]
 

@@ -8,7 +8,7 @@ random.seed(time.time())
 
 class NodeMap:
 
-    def __init__(self, nodes, mutation=randomInsertMutation):
+    def __init__(self, nodes, mutation=randomReflectPartMutation):
         self.nodes = []
 
         self.distance = None
