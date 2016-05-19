@@ -70,7 +70,7 @@ def shuffleSegmentMutation(nodes, mutation_probability):
 
     # How long can shuffled part be
     # e.g. 0.25 means shuffled part length can't be bigger than 25% of nodes length
-    max_part_len = 0.2
+    max_part_len = 0.1
     max_part_elems = len(nodes) * max_part_len
 
     for i in range(len(nodes)):

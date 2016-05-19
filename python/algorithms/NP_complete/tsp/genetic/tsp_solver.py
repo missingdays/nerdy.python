@@ -13,17 +13,17 @@ class TSPSolver:
 
     def __init__(self, sizeOfPopulation=10, numberOfCycles=100, 
             mutationProbability=0.02, targetNodeMap=None, crossover=CXCrossover, 
-            selection=None):
+            selectionGetter=None):
         self.sizeOfPopulation = sizeOfPopulation
         self.numberOfCycles = numberOfCycles
         self.mutationProbability = mutationProbability
         self.targetNodeMap = targetNodeMap
         self.crossover = crossover
 
-        if selection == None:
+        if selectionGetter == None:
             self.selection = getBestPartSelection(crossover=crossover)
         else:
-            self.selection = selection
+            self.selection = selectionGetter(crossover=crossover)
 
         self.population = []
 
@@ -113,13 +113,13 @@ class TSPSolver:
 
 def main():
     
-    nodeMap = generate_line(80)
+    nodeMap = generate_line(40)
 
-    tspSolver = TSPSolver(selection=getBestPartSelection())
+    tspSolver = TSPSolver(selectionGetter=getBestPartSelection, crossover=orderedCrossover)
     tspSolver.setTargetNodeMap(nodeMap)
-    tspSolver.mutationProbability = 0.01
-    tspSolver.sizeOfPopulation = 3000
-    tspSolver.numberOfCycles = 40000
+    tspSolver.mutationProbability = 0.02
+    tspSolver.sizeOfPopulation = 4000
+    tspSolver.numberOfCycles = 10000
 
     tspSolver.debug = True
 
