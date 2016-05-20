@@ -113,9 +113,9 @@ class TSPSolver:
 
 def main():
     
-    nodeMap = generate_line(40)
+    nodeMap = generate_line(80)
 
-    tspSolver = TSPSolver(selectionGetter=getBestPartSelection, crossover=orderedCrossover)
+    tspSolver = TSPSolver(selectionGetter=getMeanFitnessSelection, crossover=orderedCrossover)
     tspSolver.setTargetNodeMap(nodeMap)
     tspSolver.mutationProbability = 0.02
     tspSolver.sizeOfPopulation = 4000
