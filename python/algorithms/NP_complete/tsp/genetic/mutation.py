@@ -1,38 +1,38 @@
 
 """
 Implements diffrenet mutation on permutations.
-Every mutation takes nodes and mutationProbability as arguments.
+Every mutation takes nodes and mutation_probability as arguments.
 Mutation probabilty defines probability of a single node to be mutated (moved, swaped with another node etc).
 """
 import random
 
-__all__ = ["neighbourSwapMutation", "randomSwapMutation", "randomInsertMutation", "randomReflectPartMutation",
-        "shuffleSegmentMutation"]
+__all__ = ["neighbour_swap_mutation", "random_swap_mutation", "random_insert_mutation", "random_reflect_segment_mutation",
+        "shuffle_segment_mutation"]
 
-def neighbourSwapMutation(nodes, mutationProbability):
+def neighbour_swap_mutation(nodes, mutation_probability):
     """
     O(n) mutation
     """
     for i in range(len(nodes)-1):
-        if random.random() < mutationProbability:
+        if random.random() < mutation_probability:
             nodes[i], nodes[i+1] = nodes[i+1], nodes[i]
 
-def randomSwapMutation(nodes, mutationProbability):
+def random_swap_mutation(nodes, mutation_probability):
     """
     O(n) mutation
     """
     for i in range(len(nodes)):
-        if random.random() < mutationProbability:
+        if random.random() < mutation_probability:
             j = random.randint(0, len(nodes)-1)
 
             nodes[i], nodes[j] = nodes[j], nodes[i]
 
-def randomInsertMutation(nodes, mutationProbability):
+def random_insert_mutation(nodes, mutation_probability):
     """
     O(n^2) mutation
     """
     for i in range(len(nodes)):
-        if random.random() < mutationProbability:
+        if random.random() < mutation_probability:
 
             # Index to insert before
             j = -1
@@ -42,7 +42,7 @@ def randomInsertMutation(nodes, mutationProbability):
 
             nodes.insert(j, nodes.pop(i))
 
-def randomReflectPartMutation(nodes, mutation_probability):
+def random_reflect_segment_mutation(nodes, mutation_probability):
     """
     O(n^2) mutation
     """
@@ -63,7 +63,7 @@ def randomReflectPartMutation(nodes, mutation_probability):
             change_segment(nodes, i, part_elems, reversed)
 
 
-def shuffleSegmentMutation(nodes, mutation_probability):
+def shuffle_segment_mutation(nodes, mutation_probability):
     """
     O(n^2) mutation
     """

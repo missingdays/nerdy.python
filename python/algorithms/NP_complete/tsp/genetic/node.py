@@ -13,7 +13,7 @@ class Node:
     def copy(self):
         return Node(self.x, self.y, self.id)
 
-    def distanceTo(self, node):
+    def distance_to(self, node):
         return sqrt( (node.x - self.x)**2 + (node.y - self.y)**2 )
 
     def __str__(self):

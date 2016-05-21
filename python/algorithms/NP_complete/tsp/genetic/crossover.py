@@ -3,24 +3,24 @@ import random
 
 from node_map import *
 
-__all__ = ["CXCrossover", "orderedCrossover"]
+__all__ = ["cyclic_crossover", "ordered_crossover"]
 
-def CXCrossover(nodeMap1, nodeMap2):
+def cyclic_crossover(node_map_1, node_map_2):
 
-    nodes = [None for i in range(len(nodeMap1))]
+    nodes = [None for i in range(len(node_map_1))]
 
-    cycle = findCycle(nodeMap1, nodeMap2)
+    cycle = find_cycle(node_map_1, node_map_2)
 
     for index in cycle:
-        nodes[index] = nodeMap1.nodes[index]
+        nodes[index] = node_map_1.nodes[index]
 
-    for i in range(len(nodeMap1)):
+    for i in range(len(node_map_1)):
         if nodes[i] == None:
-            nodes[i] = nodeMap2.nodes[i]
+            nodes[i] = node_map_2.nodes[i]
 
     return NodeMap(nodes)
 
-def orderedCrossover(node_map_1, node_map_2):
+def ordered_crossover(node_map_1, node_map_2):
 
     nodes = [None for i in range(len(node_map_1))]
 
@@ -29,7 +29,6 @@ def orderedCrossover(node_map_1, node_map_2):
 
     start = min(start, end)
     end = max(start, end)
-
 
     added_nodes = set()
 
@@ -53,14 +52,14 @@ def orderedCrossover(node_map_1, node_map_2):
 
     return NodeMap(nodes)
 
-def findCycle(nodeMap1, nodeMap2):
-    seenIndexes = set()
+def find_cycle(node_map_1, node_map_2):
+    seen_indexes = set()
 
-    currentIndex = 0
+    current_index = 0
 
-    while currentIndex not in seenIndexes:
-        seenIndexes.add(currentIndex)
+    while current_index not in seen_indexes:
+        seen_indexes.add(current_index)
 
-        currentIndex = nodeMap2.getNodeIndex(nodeMap1.nodes[currentIndex])
+        current_index = node_map_2.gen_node_index(nodeMap1.nodes[current_index])
 
-    return seenIndexes
+    return seen_indexes

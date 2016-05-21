@@ -2,23 +2,23 @@
 from crossover import *
 from tsp_solver import *
 
-__all__ = ["getBestPartSelection", "getRouletteSelection", "getMeanFitnessSelection"]
+__all__ = ["get_best_part_selection", "get_roulette_selection", "get_mean_fitness_selection"]
 
-def getBestPartSelection(crossover=CXCrossover, gensToSurvive=0.5):
-    def bestPartSelection(population):
+def get_best_part_selection(crossover=cyclic_crossover, gens_to_survive=0.5):
+    def best_part_selection(population):
 
-        sizeOfPopulation = len(population)
+        population_size = len(population)
 
-        population = TSPSolver.sortGensByFitness(population)
+        population = TSPSolver.sort_gens_by_fitness(population)
 
-        numberOfBest = int(sizeOfPopulation * gensToSurvive)
-        numberOfWorst = sizeOfPopulation - numberOfBest
+        number_of_best = int(population_size * gens_to_survive)
+        number_of_worst = population_size - number_of_best
 
-        population = population[numberOfWorst:]
+        population = population[number_of_worst:]
 
         size = len(population)
 
-        while len(population) < sizeOfPopulation:
+        while len(population) < population_size:
             n1 = random.randint(0, size-1)
             n2 = random.randint(0, size-1)
 
@@ -28,39 +28,39 @@ def getBestPartSelection(crossover=CXCrossover, gensToSurvive=0.5):
 
         return population
 
-    return bestPartSelection
+    return best_part_selection
 
-def getRouletteSelection(crossover=CXCrossover):
+def get_roulette_selection(crossover=cyclic_crossover):
 
-    def rouletteSelection(population):
+    def roulette_selection(population):
 
-        selectedPopulation = selectPopulationBasedOnFitness(population)
+        selected_population = select_population_based_on_fitness(population)
 
-        newPopulation = createNewPopulation(selectedPopulation, crossover)
+        new_population = create_new_population(selected_population, crossover)
 
-        return newPopulation
+        return new_population
 
-    return rouletteSelection
+    return roulette_selection
 
-def getMeanFitnessSelection(crossover=CXCrossover):
+def get_mean_fitness_selection(crossover=cyclic_crossover):
 
     def mean_fitness_selection(population):
 
         selected_population = select_population_better_than_mean(population)
         
-        new_population = createNewPopulation(selected_population, crossover, population_size=len(population))
+        new_population = create_new_population(selected_population, crossover, population_size=len(population))
 
         return new_population
 
     return mean_fitness_selection
 
-def selectPopulationBasedOnFitness(population):
-    selectedPopulation = []
+def select_population_based_on_fitness(population):
+    selected_population = []
 
     for i in range(len(population)):
-        selectedPopulation.append(selectGenBasedOnFitness(population))
+        selected_population.append(select_gen_based_on_fitness(population))
 
-    return selectedPopulation
+    return selected_population
 
 def select_population_better_than_mean(population):
 
@@ -70,13 +70,13 @@ def select_population_better_than_mean(population):
 
     return selected_population
 
-def selectGenBasedOnFitness(population):
-    fitnessSum = 0
+def select_gen_based_on_fitness(population):
+    fitness_sum = 0
 
     for gen in population:
-        fitnessSum += TSPSolver.fitness(gen)
+        fitness_sum += TSPSolver.fitness(gen)
 
-    rand = random.random() * fitnessSum
+    rand = random.random() * fitness_sum
 
     for gen in population:
         rand -= TSPSolver.fitness(gen)
@@ -87,19 +87,19 @@ def selectGenBasedOnFitness(population):
     # In case of rounding error
     return population[len(population)-1]
 
-def createNewPopulation(population, crossover, population_size=None):
-    newPopulation = []
+def create_new_population(population, crossover, population_size=None):
+    new_population = []
 
     if population_size == None:
         population_size = len(population)
 
-    while len(newPopulation) < population_size:
+    while len(new_population) < population_size:
         i = random.randint(0, len(population)-1)
         j = random.randint(0, len(population)-1)
 
-        newPopulation.append(crossover(population[i], population[j]))
+        new_population.append(crossover(population[i], population[j]))
 
-    return newPopulation
+    return new_population
 
 def get_mean_fitness(population):
 

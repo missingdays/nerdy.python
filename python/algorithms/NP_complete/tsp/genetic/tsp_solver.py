@@ -11,126 +11,122 @@ random.seed(time.time())
 
 class TSPSolver:
 
-    def __init__(self, sizeOfPopulation=10, numberOfCycles=100, 
-            mutationProbability=0.02, targetNodeMap=None, crossover=CXCrossover, 
-            selectionGetter=None):
-        self.sizeOfPopulation = sizeOfPopulation
-        self.numberOfCycles = numberOfCycles
-        self.mutationProbability = mutationProbability
-        self.targetNodeMap = targetNodeMap
+    def __init__(self, population_size=10, number_of_cycles=100, 
+            mutation_probability=0.02, target_node_map=None, crossover=cyclic_crossover, 
+            selection_getter=None):
+        self.population_size = population_size
+        self.number_of_cycles = number_of_cycles
+        self.mutation_probability = mutation_probability
+        self.target_node_map = target_node_map
         self.crossover = crossover
 
-        if selectionGetter == None:
-            self.selection = getBestPartSelection(crossover=crossover)
+        if selection_getter == None:
+            self.selection = get_best_part_selection(crossover=crossover)
         else:
-            self.selection = selectionGetter(crossover=crossover)
+            self.selection = selection_getter(crossover=crossover)
 
         self.population = []
 
         self.debug = False
-        
 
     def solve(self):
         
-        if self.targetNodeMap == None:
+        if self.target_node_map == None:
             raise ValueError("Target Node Map can't be None. Set it before calling solve")
 
-        self.debugAfterCycles = self.numberOfCycles // 10
+        self.debug_after_cycles = self.number_of_cycles // 10
 
-        self.beforeSolve()
+        self.before_solve()
 
-        self.performSolve()
+        self.perform_solve()
 
-        self.afterSolve()
+        self.after_solve()
 
-    def beforeSolve(self):
+    def before_solve(self):
         if self.debug:
 
             print("Target node map is ")
-            print(str(self.targetNodeMap))
-            print("Its distance is " + str(self.targetNodeMap.getOverallDistance()))
+            print(str(self.target_node_map))
+            print("Its distance is " + str(self.target_node_map.get_overall_distance()))
             print("\n")
 
-    def performSolve(self):
+    def perform_solve(self):
 
-        self.generateFirstPopulation()
+        self.generate_first_population()
 
-        for i in range(self.numberOfCycles):
-            self.performCycle(i)
+        for i in range(self.number_of_cycles):
+            self.perform_cycle(i)
 
-            self.afterCycle(i)
+            self.after_cycle(i)
 
-    def generateFirstPopulation(self):
+    def generate_first_population(self):
 
         self.population = []
 
-        for i in range(self.sizeOfPopulation):
-            gen = self.targetNodeMap.copy()
+        for i in range(self.population_size):
+            gen = self.target_node_map.copy()
 
             gen.shuffle()
 
             self.population.append(gen)
 
-    def performCycle(self, index):
-        self.performSelection()
-        self.performMutate()
+    def perform_cycle(self, index):
+        self.perform_selection()
+        self.perform_mutate()
 
-    def performSelection(self):
+    def perform_selection(self):
         self.population = self.selection(self.population)
 
-    def performMutate(self):
+    def perform_mutate(self):
         for gen in self.population:
-            gen.mutate(self.mutationProbability)
+            gen.mutate(self.mutation_probability)
 
-    def afterCycle(self, index):
+    def after_cycle(self, index):
         if self.debug:
-            if index % self.debugAfterCycles == 0:
-                print("Cycle " + str(index) + " of " + str(self.numberOfCycles))
+            if index % self.debug_after_cycles == 0:
+                print("Cycle " + str(index) + " of " + str(self.number_of_cycles))
                 print("Best node map is")
-                print(self.getBestNodeMap())
-                print("Its distance is " + str(self.getBestNodeMap().getOverallDistance()))
+                print(self.get_best_node_map())
+                print("Its distance is " + str(self.get_best_node_map().get_overall_distance()))
                 print("\n")
 
-    def afterSolve(self):
+    def after_solve(self):
         pass
 
-    def getBestNodeMap(self):
-        self.population = TSPSolver.sortGensByFitness(self.population)
+    def get_best_node_map(self):
+        self.population = TSPSolver.sort_gens_by_fitness(self.population)
 
         return self.population[len(self.population) - 1]
 
-    def setTargetNodeMap(self, nodeMap):
-        self.targetNodeMap = nodeMap
-
     @staticmethod
     def fitness(gen):
-        return 1 / gen.getOverallDistance()
+        return 1 / gen.get_overall_distance()
 
     @staticmethod
-    def sortGensByFitness(gens):
+    def sort_gens_by_fitness(gens):
         gens.sort(key=lambda gen: TSPSolver.fitness(gen))
         return gens
 
 def main():
     
-    nodeMap = generate_line(80)
+    node_map = generate_line(30)
 
-    tspSolver = TSPSolver(selectionGetter=getMeanFitnessSelection, crossover=orderedCrossover)
-    tspSolver.setTargetNodeMap(nodeMap)
-    tspSolver.mutationProbability = 0.02
-    tspSolver.sizeOfPopulation = 4000
-    tspSolver.numberOfCycles = 10000
+    tspSolver = TSPSolver(selection_getter=get_mean_fitness_selection, crossover=ordered_crossover)
+    tspSolver.target_node_map = node_map
+    tspSolver.mutation_probability = 0.02
+    tspSolver.population_size = 4000
+    tspSolver.number_of_cycles = 1000
 
     tspSolver.debug = True
 
     tspSolver.solve()
 
-    bestNodeMap = tspSolver.getBestNodeMap()
+    bestNodeMap = tspSolver.get_best_node_map()
 
     print("Best plate is")
     print(bestNodeMap)
-    print("It's distance is ", bestNodeMap.getOverallDistance())
-    print("Target nodeMap distance was ", nodeMap.getOverallDistance())
+    print("It's distance is ", bestNodeMap.get_overall_distance())
+    print("Target node_map distance was ", node_map.get_overall_distance())
 
 def generate_line(size):
     nodes = []
