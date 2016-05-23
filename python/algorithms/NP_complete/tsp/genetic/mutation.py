@@ -4,10 +4,11 @@ Implements diffrenet mutation on permutations.
 Every mutation takes nodes and mutation_probability as arguments.
 Mutation probabilty defines probability of a single node to be mutated (moved, swaped with another node etc).
 """
+
 import random
 
 __all__ = ["neighbour_swap_mutation", "random_swap_mutation", "random_insert_mutation", "random_reflect_segment_mutation",
-        "shuffle_segment_mutation"]
+        "shuffle_segment_mutation", "shuffle_random_pieces_mutation"]
 
 def neighbour_swap_mutation(nodes, mutation_probability):
     """
@@ -49,7 +50,7 @@ def random_reflect_segment_mutation(nodes, mutation_probability):
 
     # How long can reflected part be
     # e.g. 0.25 means reflected part length can't be bigger than 25% of nodes length
-    max_part_len = 0.2
+    max_part_len = 0.05
     max_part_elems = len(nodes) * max_part_len
 
     for i in range(len(nodes)):
@@ -70,7 +71,7 @@ def shuffle_segment_mutation(nodes, mutation_probability):
 
     # How long can shuffled part be
     # e.g. 0.25 means shuffled part length can't be bigger than 25% of nodes length
-    max_part_len = 0.1
+    max_part_len = 0.05
     max_part_elems = len(nodes) * max_part_len
 
     for i in range(len(nodes)):
@@ -83,8 +84,40 @@ def shuffle_segment_mutation(nodes, mutation_probability):
 
             change_segment(nodes, i, part_elems, shuffled)
 
+def shuffle_random_pieces_mutation(nodes, mutation_probability):
+    """
+    O(n^2) mutation
+
+    Shuffles random nodes. Chooses their indexes based on mutation_probability multiplied by some coefficient.
+    Coefficient is tuned so that algorithms shuffles more than random_swap_mutation but doesn't shuffle gen too much
+    """
+
+    coeff = 0.7
+
+    # How many nodes we will take for shuffling
+    # e.g. 0.25 means we will take 25% of nodes to shuffle
+    max_pieces_number = 0.05 * len(nodes)
+
+    nodes_to_shuffle = {}
+
+    for i in range(len(nodes)):
+        if random.random() < mutation_probability * coeff:
+            if len(nodes_to_shuffle) < max_pieces_number:
+                nodes_to_shuffle[i] =  nodes[i]
+
+    shuffled_nodes = shuffled_dict(nodes_to_shuffle)
+
+    for i, node in shuffled_nodes.items():
+        nodes[i] = node
+
 def shuffled(x):
     return random.sample(x, len(x))
+
+def shuffled_dict(x):
+    keys = x.keys()
+    values = shuffled(list(x.values()))
+
+    return dict(zip(keys, values))
 
 def change_segment(nodes, i, length, function):
     if i + length >= len(nodes):

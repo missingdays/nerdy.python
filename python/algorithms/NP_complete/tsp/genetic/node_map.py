@@ -8,19 +8,23 @@ random.seed(time.time())
 
 class NodeMap:
 
-    def __init__(self, nodes, mutation=shuffle_segment_mutation):
+    def __init__(self, nodes):
         self.nodes = []
 
         self.distance = None
-        self.mutation = mutation
+        self.mutation = None
 
         for node in nodes:
             self.nodes.append(node.copy())
 
     def copy(self):
-        return NodeMap(self.nodes)
+        cp = NodeMap(self.nodes)
+        cp.mutation = self.mutation
+        cp.distance = self.distance
+        
+        return cp
 
-    def addNode(self, node):
+    def add_node(self, node):
         self.nodes.append(node)
 
         self.distance = None
@@ -56,9 +60,8 @@ class NodeMap:
 
         self.distance = None
 
-    def mutate(self, mutation_probability):
-        self.mutation(self.nodes, mutation_probability)
-
+    def mutate(self, mutation, mutation_probability):
+        mutation(self.nodes, mutation_probability)
         self.distance = None
 
     def get_node_index(self, node_to_find):
@@ -68,7 +71,7 @@ class NodeMap:
             if node.id == id_to_find:
                 return index
 
-        raise Exception("Couldn't find node " +  str(node_to_find) + " at " + str(self))
+        raise Exception("Couldn't find node " +  str(node_to_find) + " in " + str(self))
 
 def main():
     pass

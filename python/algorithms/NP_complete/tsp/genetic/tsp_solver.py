@@ -1,24 +1,26 @@
 
-import random
+import random 
 import time
 
 from node import Node
 from node_map import NodeMap
 from crossover import *
 from selection import *
+from mutation import *
 
 random.seed(time.time())
 
 class TSPSolver:
 
     def __init__(self, population_size=10, number_of_cycles=100, 
-            mutation_probability=0.02, target_node_map=None, crossover=cyclic_crossover, 
-            selection_getter=None):
+            mutation_probability=0.01, target_node_map=None, crossover=cyclic_crossover, 
+            selection_getter=None, mutation=shuffle_segment_mutation):
         self.population_size = population_size
         self.number_of_cycles = number_of_cycles
         self.mutation_probability = mutation_probability
         self.target_node_map = target_node_map
         self.crossover = crossover
+        self.mutation = mutation
 
         if selection_getter == None:
             self.selection = get_best_part_selection(crossover=crossover)
@@ -79,7 +81,7 @@ class TSPSolver:
 
     def perform_mutate(self):
         for gen in self.population:
-            gen.mutate(self.mutation_probability)
+            gen.mutate(self.mutation, self.mutation_probability)
 
     def after_cycle(self, index):
         if self.debug:
@@ -109,13 +111,14 @@ class TSPSolver:
 
 def main():
     
-    node_map = generate_line(30)
+    node_map = generate_line(80)
 
-    tspSolver = TSPSolver(selection_getter=get_mean_fitness_selection, crossover=ordered_crossover)
+    tspSolver = TSPSolver(selection_getter=get_mean_fitness_selection, crossover=ordered_crossover, 
+            mutation=shuffle_random_pieces_mutation)
     tspSolver.target_node_map = node_map
-    tspSolver.mutation_probability = 0.02
+    tspSolver.mutation_probability = 0.01
     tspSolver.population_size = 4000
-    tspSolver.number_of_cycles = 1000
+    tspSolver.number_of_cycles = 10000
 
     tspSolver.debug = True
 
