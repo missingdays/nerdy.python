@@ -92,11 +92,11 @@ def shuffle_random_pieces_mutation(nodes, mutation_probability):
     Coefficient is tuned so that algorithms shuffles more than random_swap_mutation but doesn't shuffle gen too much
     """
 
-    coeff = 0.7
+    coeff = 0.9
 
     # How many nodes we will take for shuffling
     # e.g. 0.25 means we will take 25% of nodes to shuffle
-    max_pieces_number = 0.05 * len(nodes)
+    max_pieces_number = 0.1 * len(nodes)
 
     nodes_to_shuffle = {}
 

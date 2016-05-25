@@ -51,6 +51,9 @@ class NodeMap:
         for i in range(len(self.nodes) - 1):
             distance += self.nodes[i].distance_to(self.nodes[i+1])
 
+        # Cycle
+        distance += self.nodes[0].distance_to(self.nodes[len(self.nodes)-1])
+
         self.distance = distance
 
         return distance
