@@ -36,7 +36,7 @@ class TSPSolver:
         if self.target_node_map == None:
             raise ValueError("Target Node Map can't be None. Set it before calling solve")
 
-        self.debug_after_cycles = self.number_of_cycles // 20
+        self.debug_after_cycles = self.number_of_cycles // 50
 
         self.before_solve()
 
@@ -87,8 +87,8 @@ class TSPSolver:
         if self.debug:
             if index % self.debug_after_cycles == 0:
                 print("Cycle " + str(index) + " of " + str(self.number_of_cycles))
-                print("Best node map is")
-                print(self.get_best_node_map())
+                #print("Best node map is")
+                #print(self.get_best_node_map())
                 print("Its distance is " + str(self.get_best_node_map().get_overall_distance()))
                 print("\n")
 
@@ -111,14 +111,14 @@ class TSPSolver:
 
 def main():
     
-    node_map = generate_line(50)
+    node_map = generate_line(160)
 
     tspSolver = TSPSolver(selection_getter=get_mean_fitness_selection, crossover=ordered_crossover, 
             mutation=shuffle_random_pieces_mutation)
     tspSolver.target_node_map = node_map
-    tspSolver.mutation_probability = 0.01
-    tspSolver.population_size = 8000
-    tspSolver.number_of_cycles = 4000
+    tspSolver.mutation_probability = 0.005
+    tspSolver.population_size = 15000
+    tspSolver.number_of_cycles = 20000
 
     tspSolver.debug = True
 

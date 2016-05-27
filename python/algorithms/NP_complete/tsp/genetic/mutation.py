@@ -89,18 +89,24 @@ def shuffle_random_pieces_mutation(nodes, mutation_probability):
     O(n^2) mutation
 
     Shuffles random nodes. Chooses their indexes based on mutation_probability multiplied by some coefficient.
-    Coefficient is tuned so that algorithms shuffles more than random_swap_mutation but doesn't shuffle gen too much
+    Coefficient is tuned so that algorithms shuffles more than random_swap_mutation but doesn't shuffle too much at the same time
     """
 
-    coeff = 0.9
+    coeff = 0.5
 
     # How many nodes we will take for shuffling
     # e.g. 0.25 means we will take 25% of nodes to shuffle
-    max_pieces_number = 0.1 * len(nodes)
+    max_pieces_number = min(7, 0.05 * len(nodes))
+
+    # We need this so we don't end up selection only first half or so nodes
+    # and ignoring the rest.
+    start_position = int(random.random() * len(nodes))
 
     nodes_to_shuffle = {}
 
-    for i in range(len(nodes)):
+    for j in range(len(nodes)):
+        i = (j + start_position) % len(nodes)
+
         if random.random() < mutation_probability * coeff:
             if len(nodes_to_shuffle) < max_pieces_number:
                 nodes_to_shuffle[i] =  nodes[i]
