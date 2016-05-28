@@ -3,31 +3,6 @@
 *~
 *.swp
 
-
-# node
-
-node_modules 
-logs 
-npm-debug.log
-.grunt
-coverage
-
-
-# ruby
-
-*.gem
-*.rbc
-./config
-/coverage/
-/pkg/
-/tmp/
-/test/tmp
-.dat*
-build/
-/doc/
-.rvmrc
-
-
 # python
 
 __pycache__/
@@ -50,47 +25,8 @@ var/
 *.egg-info/
 *.egg
 .installed.cfg
-
-
-# c
-
-*.o
-*.ko
-*.obj
-*.elf
-*.gch
-*.pch
-*.lib
-*.a
-*.la
-*.lo
-*.dll
-*.so
-*.so.*
-*.dylib
-*.exe
-*.out
-*.app
-*.i*486
-*.x86_64
-*.hex
-
-
-# rust
-
-*.o
-*.so
-*.rlib
-*.dll
-*.exe
-/target
-
-# haskell
-
-*.hi
-*.o
-
 # sublimetext
+#
 # cache files for sublime text
 *.tmlanguage.cache
 *.tmPreferences.cache
