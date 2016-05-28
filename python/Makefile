@@ -1,3 +1,0 @@
-
-test:
-	$(MAKE) -C structures

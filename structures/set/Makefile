@@ -1,3 +1,3 @@
 
-build:
-	$(MAKE) -C go
+test:
+	python3 set.py
