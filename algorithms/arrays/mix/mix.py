@@ -20,5 +20,3 @@ def mixArray(array):
         array[i], array[rand] = array[rand], array[i]
 
     return array
-
-print(mixArray([1,2,3,4,5]))

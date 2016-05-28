@@ -1,4 +1,3 @@
 
 test:
-	$(MAKE) -C algorithms
-	$(MAKE) -C structures
+	py.test .
