@@ -8,7 +8,7 @@
 '''
 
 
-def index(origin, sub):
+def substring_index(origin, sub):
 
     i_origin = 0 # current character in origin
     i_sub = 0 # in sub
@@ -34,8 +34,3 @@ def index(origin, sub):
         return i_origin-len(sub)
     else:
         return -1
-
-print(index("hello", "o"))    
-print(index("hello", "llo"))    
-print(index("hello world", "world"))    
-print(index("hello world", "wrld"))
