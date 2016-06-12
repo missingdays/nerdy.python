@@ -25,6 +25,10 @@ var/
 *.egg-info/
 *.egg
 .installed.cfg
+
+#py.test
+.cache
+
 # sublimetext
 #
 # cache files for sublime text
