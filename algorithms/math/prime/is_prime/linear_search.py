@@ -1,6 +1,8 @@
 
-# Checks whether number is prime using simple linear search
 def is_prime(n):
+    """
+    Checks whether number is prime using simple linear search
+    """
 
     # We need to check only first sqrt(n) numbers
     # Prove:
