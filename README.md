@@ -8,14 +8,17 @@ In future this will turn into universal library for algorithms in most used lang
 
 ## Didn't find what you was looking for?
 
-1. Maybe you will find it here:
+Maybe you will find it here:
+
 http://rosettacode.org/wiki/Rosetta_Code - great sites with a lot algorithms. Our repository is inspired mostly by this site.
 
 http://mitpress.mit.edu/books/introduction-algorithms - wonderful book that helped our repository a lot.
 
 Have some recourse to share with others? Send a pull-request!
 
-2. Help out project with your solutions. See "Want to contribute".
+## Help
+
+Help out project with your solutions. See "Want to contribute".
 
 ## Want to contribute
 If you know any algorithm or data structure that is not in the repository and issues yet, issues it for sure! Also you can write existing algorithm in your favorite language and send a pull request with it!
