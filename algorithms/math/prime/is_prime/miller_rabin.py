@@ -40,7 +40,7 @@ def is_prime(n, test_number=100):
 
 def is_composite(x, s, t, n):
     # If Ferma's little theorem holds
-    # then number is prime
+    # then n is prime
     if pow(x, t, n) == 1:
         return False
 
