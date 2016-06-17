@@ -117,8 +117,8 @@ def main():
             mutation=shuffle_random_pieces_mutation)
     tspSolver.target_node_map = node_map
     tspSolver.mutation_probability = 0.005
-    tspSolver.population_size = 15000
-    tspSolver.number_of_cycles = 20000
+    tspSolver.population_size = 10000
+    tspSolver.number_of_cycles = 40000
 
     tspSolver.debug = True
 

@@ -1,0 +1,2 @@
+
+from .lcm import lcm

@@ -1,5 +1,5 @@
 
-from gcd import gcd
+from . import gcd
 
 def test_gcd():
 
