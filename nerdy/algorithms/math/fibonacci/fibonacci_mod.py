@@ -6,7 +6,7 @@
 #
 # Distributed under terms of the MIT license.
 
-def fib_mod(n, m):
+def fibonacci_mod(n, m):
     """
     Fast Fibonacci mod m computing
     """

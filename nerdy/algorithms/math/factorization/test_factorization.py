@@ -1,4 +1,6 @@
 
+from . import prime_factors
+
 import collections
 
 def test_factorization():

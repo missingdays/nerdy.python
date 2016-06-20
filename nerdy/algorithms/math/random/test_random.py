@@ -8,4 +8,4 @@ def test_random_sets_seed():
 	assert g.seed == 0
 
 	g.seed = 31415
-	assert g.seed = 31415
+	assert g.seed == 31415
