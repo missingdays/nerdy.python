@@ -67,7 +67,7 @@ class Permutation(list):
 
     def __setitem__(self, i, v):
         """
-        Please note, that you should typicaly set items by yourself unless you 
+        Please note, that you shouldn't typicaly set items by yourself unless you 
         totaly know what you are doing, as setting wrong numbers can break all functionality
         """
         self.numbers[i] = v
