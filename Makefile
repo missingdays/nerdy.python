@@ -1,5 +1,5 @@
 
-test:
+test: install
 	python3 -m pytest nerdy
 
 clean:
