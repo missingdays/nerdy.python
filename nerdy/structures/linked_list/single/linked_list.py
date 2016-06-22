@@ -74,3 +74,12 @@ class LinkedList:
             previous.next = current.next
 
         return True
+
+    def __iter__(self):
+        current = self.head
+
+        while current != None:
+            yield current.key, current.value
+            current = current.next
+
+        raise StopIteration

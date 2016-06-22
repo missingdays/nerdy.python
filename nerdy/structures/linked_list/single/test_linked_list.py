@@ -98,3 +98,19 @@ def test_linked_list_remove():
 
     for i in range(n//2):
         assert l.remove(i) == True
+
+def test_linked_list_iter():
+
+    l = LinkedList()
+
+    n = 100
+    for i in range(n):
+        l.add(i, i)
+
+    # Since new values are added in the list head
+    # list will be reversed
+    
+    i = 0
+    for key, value in l:
+        assert key == n-i-1, value == n-i-1
+        i += 1
