@@ -5,3 +5,6 @@ test:
 clean:
 	py3clean .
 	rm -rf dist
+
+install:
+	sudo pip3 install -e .
