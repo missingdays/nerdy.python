@@ -53,6 +53,23 @@ class Permutation(list):
         return lex_rank
     """
 
+    def equal(self, another):
+        print(len(self), len(another))
+        if len(self) != len(another):
+            return False
+
+        for e1, e2 in zip(self, another):
+            if e1 != e2:
+                return False
+
+        return True
+
+    def __eq__(self, another):
+        return self.equal(another)
+
+    def __ne__(self, another):
+        return not self.equal(another)
+
     def __str__(self):
         return str(self.numbers)
 

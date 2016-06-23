@@ -1,4 +1,6 @@
 
+from math import factorial
+
 from . import Permutation
 
 n = 5
@@ -8,6 +10,39 @@ def test_permutation_init():
 
     for i in range(n):
         assert permutation[i] == i+1
+
+def test_permutation_equal():
+
+    p1, p2 = Permutation(1), Permutation(1)
+
+    assert p1 == p2
+
+    p1, p2 = Permutation(2).next(), Permutation(2).next()
+
+    assert p1 == p2
+
+    p1, p2 = Permutation(n), Permutation(n)
+
+    for i in range(n):
+        p1 = p1.next()
+        p2 = p2.next()
+
+    assert p1 == p2
+
+    p1, p2 = Permutation(1), Permutation(2)
+    
+    assert p1 != p2
+
+    p1, p2 = Permutation(2), Permutation(2).next()
+
+    assert p1 != p2
+
+    p1, p2 = Permutation(n), Permutation(n).next()
+
+    for i in range(factorial(n)):
+        assert p1 != p2
+        p1 = p1.next()
+        p2 = p2.next()
 
 def test_permutation_next():
 
@@ -36,7 +71,5 @@ def test_permutation_next():
 
     permutation.numbers = list(range(n, 0, -1))
     permutation = permutation.next()
-    
-    for e1, e2 in zip(permutation, range(1, n+1)):
-        assert e1 == e2
 
+    assert permutation == range(1, n+1)
