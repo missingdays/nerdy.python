@@ -1,4 +1,6 @@
 
+from nerdy.algorithms import array
+
 from math import factorial
 
 class Permutation(list):
@@ -93,7 +95,7 @@ class Permutation(list):
 
             permutation[current_index] = tmp_permutation[index]
 
-            tmp_permutation = (index > 0 and tmp_permutation[:index] or []) + (index < len(tmp_permutation)-1 and tmp_permutation[index+1:] or [])
+            tmp_permutation.pop(index)
 
             rank %= size
 
@@ -108,14 +110,7 @@ class Permutation(list):
         and all their elements come in the same order
         """
 
-        if len(self) != len(another):
-            return False
-
-        for e1, e2 in zip(self, another):
-            if e1 != e2:
-                return False
-
-        return True
+        return array.equal(self, another)
 
     def __eq__(self, another):
         return self.equal(another)
