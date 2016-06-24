@@ -7,11 +7,10 @@ class Permutation(list):
     """
 
     def __init__(self, n):
-        self.n = n
         self.numbers = [i for i in range(1, n+1)]
 
     def copy(self):
-        cp = Permutation(self.n)
+        cp = Permutation(len(self))
         cp.numbers = list(self.numbers)
 
         return cp
@@ -28,7 +27,7 @@ class Permutation(list):
             i -= 1
 
         if i <= 0:
-            return Permutation(self.n)
+            return Permutation(len(self))
 
         new_permutation = self.copy()
 
