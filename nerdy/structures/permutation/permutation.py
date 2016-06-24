@@ -6,6 +6,8 @@ class Permutation(list):
     Permutation is some arragment of numbers from 1 to N
     """
 
+    __slots__ = ["numbers"]
+
     def __init__(self, n):
         self.numbers = [i for i in range(1, n+1)]
 
