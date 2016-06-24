@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/missingdays/nerdy.python.svg?branch=master)](https://travis-ci.org/missingdays/nerdy.python)
+
 ## Nerdy
 Python algorithms and data structures library with good documentation and full tests.
 
