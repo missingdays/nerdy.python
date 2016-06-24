@@ -17,6 +17,11 @@ class Permutation(list):
         return cp
 
     def next(self):
+        """
+        Returns next permutation
+
+        permutation.next().rank() always equals (permutation.rank() + 1) % factorial(N) where N is the length of permutation
+        """
         i = len(self) - 1
 
         while i > 0 and self[i-1] >= self[i]:
@@ -37,24 +42,71 @@ class Permutation(list):
 
         return new_permutation
 
-    """
-    def lex_rank(self):
-        lex_rank = 0
-        was = {}
+    def rank(self):
+        """
+        Returns rank of a current permutation
 
-        n = len(self)
+        Time: O(n^2)
+        Space: O(1)
+        """
 
-        for i in range(n):
-            for j in range(i):
-                if j not in was:
-                    lex_rank += factorial(n-i)
-            was[self[i]] = True
+        l = len(self)
+        mul = factorial(l)
+        rank = 0
 
-        return lex_rank
-    """
+        for i, number in enumerate(self):
+            mul //= (l - i)
+
+            smaller_on_right = 0
+
+            for right_number in self[i+1:]:
+                if right_number < number:
+                    smaller_on_right += 1
+
+            rank += smaller_on_right * mul
+
+        return rank
+   
+    @classmethod
+    def from_rank(cls, *, n=-1, rank=0):
+        """
+        Returns new permutation that has given rank
+
+        Time: O(n^2)
+        Space: O(n)
+        """
+
+        if n < 0:
+            raise ValueError("Permutation length must be atleast 0")
+
+        if rank < 0:
+            raise ValueError("Permutation rank can't be negative")
+
+        permutation, tmp_permutation = cls(n), [i for i in range(1, n+1)]
+
+        current_index = 0
+
+        while len(tmp_permutation) > 0:
+            size = factorial(len(tmp_permutation) - 1)
+            index = rank // size
+
+            permutation[current_index] = tmp_permutation[index]
+
+            tmp_permutation = (index > 0 and tmp_permutation[:index] or []) + (index < len(tmp_permutation)-1 and tmp_permutation[index+1:] or [])
+
+            rank %= size
+
+            current_index += 1
+
+        return permutation
 
     def equal(self, another):
-        print(len(self), len(another))
+        """
+        Returns whether self permutation equals to another permutation
+        Two permutations are equal, if they have the same length (e.g. the both contain numbers from 1 to some N)
+        and all their elements come in the same order
+        """
+
         if len(self) != len(another):
             return False
 
@@ -91,3 +143,9 @@ class Permutation(list):
 
     def __getitem__(self, i):
         return self.numbers[i]
+
+    def __reversed__(self):
+        return reversed(self.numbers)
+
+    def __contains__(self, item):
+        return item in self.numbers
