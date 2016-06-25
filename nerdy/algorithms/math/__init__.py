@@ -9,3 +9,5 @@ from .pnorm import *
 from .polynomial import *
 from .prime import *
 from .random import *
+
+from .math import *
