@@ -2,23 +2,13 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "text": "Welcome to Nerdy documentation\n\n\nNerdy is data structures and algorithms library with fully tested and documented code. We try to document every algorithm and data structure as clear as possible, yet providing full overview with correctness and time and space complexity proofs.\n\n\nMain language we use is Python, but we have plans for implementing everything in C++ and Go at some point.", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-mkdocs", 
-            "text": "For full documentation visit  mkdocs.org .", 
-            "title": "Welcome to MkDocs"
-        }, 
-        {
-            "location": "/#commands", 
-            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
-            "title": "Commands"
-        }, 
-        {
-            "location": "/#project-layout", 
-            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
-            "title": "Project layout"
+            "location": "/#welcome-to-nerdy-documentation", 
+            "text": "Nerdy is data structures and algorithms library with fully tested and documented code. We try to document every algorithm and data structure as clear as possible, yet providing full overview with correctness and time and space complexity proofs.  Main language we use is Python, but we have plans for implementing everything in C++ and Go at some point.", 
+            "title": "Welcome to Nerdy documentation"
         }
     ]
 }
