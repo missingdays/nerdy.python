@@ -1,7 +1,7 @@
 
 from .pnorm import *
-from .prime import *
+from .primes import *
 from .RNG import *
 from .number_theory import *
-from .math import *
+from .general import *
 from .combinatorics import *
