@@ -1,2 +1,0 @@
-
-from .gcd import gcd

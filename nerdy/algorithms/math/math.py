@@ -6,3 +6,11 @@ def are_close(n1, n2, precision=0.001):
     """
 
     return abs(n1-n2) <= precision
+
+def product(it):
+    p = 1
+
+    for e in it:
+        p *= e
+
+    return p
